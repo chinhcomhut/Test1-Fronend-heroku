@@ -10,7 +10,7 @@ import {SongService} from './services/song/song.service';
 })
 export class AppComponent implements OnInit {
   title = 'ngx-audio-player-demo';
-private roles: string[];
+ roles: string[];
  authority: string;
 songList: Song[] = [];
 info: any;
