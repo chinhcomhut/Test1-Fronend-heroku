@@ -1,0 +1,93 @@
+<!--<app-title-page [content]="title"></app-title-page>-->
+
+<div class="container" style="margin-top: 10px" *ngIf="playlist">
+<!--    <a [routerLink]="['/add-song/',playlist.id]" class="btn btn-outline-warning offset-5">Thêm Bài Hát Vào PLaylist</a>-->
+<!--    <hr>-->
+<!--    <button [routerLink]="['/add-song/',playlist.id]" mat-fab aria-label="Example icon-button with a heart icon">-->
+<!--        Add Music To Playlist<mat-icon>favorite</mat-icon>-->
+<!--    </button>-->
+<!--    <button [routerLink]="['/add-song/',playlist.id]" mat-flat-button color="accent" ><mat-icon>queue music</mat-icon>Add Music</button>-->
+<!--    <div class="row" >-->
+
+<!--        <div class="col-3" *ngFor="let song of playlist.songs">-->
+<!--            <div class="mb-4" [routerLink]="['/home/song/play',song.id]"-->
+<!--                 style="width: 150px; height: 150px">-->
+<!--                <img class="avatar-music text-center" src="{{song.avatarUrl}}" alt="{{song.nameSong }}">-->
+<!--            </div>-->
+<!--            <h6 class="font-weight-bold" style="margin-top: 40px">-->
+<!--                <a routerLink="#">{{song.nameSong}}</a>-->
+<!--            </h6>-->
+<!--            <p style="font-size: 85%; margin-top: 15px">Ca sĩ - <a class="font-weight-bold">{{song.singer}}</a></p>-->
+<!--            <p style="font-size: 85%">Thể loại - <a class="font-weight-bold">{{song.category}}</a></p>-->
+<!--        </div>-->
+<!--    </div>-->
+
+<div class="col-12" style="margin-top: 20px;" >
+    <mat-card style="background-image: url(https://hinhanhdephd.com/wp-content/uploads/2017/12/hinh-anh-dong-giang-sinh-dep-5.gif); margin-bottom: 70px;">
+        <mat-card-header>
+            <mat-card-title><a target="_top" href="https://flamingtext.com/" ><img src="https://blog.flamingtext.com/blog/2019/12/24/flamingtext_com_1577167243_790730604.gif" border="0" alt="Logo Design by FlamingText.com" title="Logo Design by FlamingText.com"></a>
+                </mat-card-title>
+        </mat-card-header>
+        <mat-card-content style="color: #bf79db" class="row justify-contents-around">
+            <div class="col py-3 pl-5">
+                <h4 style="color: greenyellow">Controls</h4>
+                <div class="d-flex flex-row px-3">
+                    <h5 style="color: greenyellow">displayTitle:</h5>
+                    <mat-checkbox style="color:red;" class="px-3 mat-advanced-player-display-title" [checked]="msaapDisplayTitle"
+                                  (change)="changeMsbapDisplayTitle($event)">{{msaapDisplayTitle}}</mat-checkbox>
+                </div>
+                <div style="color: #a6e22e" class="d-flex flex-row px-3">
+                    displayPlayList:
+                    <mat-checkbox style="color: red" class="px-3 mat-advanced-player-display-playlist"
+                                  [checked]="msaapDisplayPlayList"
+                                  (change)="changeMsaapDisplayPlayList($event)">{{msaapDisplayPlayList}}</mat-checkbox>
+                </div>
+                <div style="color: #a6e22e" class="d-flex flex-row px-3">
+                    displayVolumeControls:
+                    <mat-checkbox style="color: red" class="px-3 mat-basic-player-display-title"
+                                  [checked]="msaapDisplayVolumeControls"
+                                  (change)="changeMsaapDisplayVolumeControls($event)">{{msaapDisplayVolumeControls}}</mat-checkbox>
+<!--                    <button [routerLink]="['/add-song/',playlist.id]" mat-flat-button color="accent" ><mat-icon>queue music</mat-icon>Add Music</button>-->
+                </div>
+            </div>
+            <div class="col">
+                <button [routerLink]="['/add-song/',playlist.id]" mat-flat-button color="accent" ><mat-icon>queue music</mat-icon>Add Music</button>
+<!--                <h3>{{title}}</h3>-->
+                <mat-advanced-audio-player  [playlist]="msaapPlaylist2" [displayTitle]="msaapDisplayTitle"
+                                           [displayPlaylist]="msaapDisplayPlayList" [autoPlay]="false"
+                                           muted="muted"
+                                           [pageSizeOptions]="pageSizeOptions"
+                                           [displayVolumeControls]="msaapDisplayVolumeControls"
+                                           [expanded]="true"></mat-advanced-audio-player>
+            </div>
+        </mat-card-content>
+    </mat-card>
+</div>
+</div>
+
+<!--<div *ngFor="let song of playlist2">title: {{song.title}} + link : {{song.link}}</div>-->
+<div class="container">
+    <div class="row">
+        <table class="table table-hover">
+            <thead>
+            <tr>
+                <th class="table-warning" scope="col">STT</th>
+                <th class="table-primary" scope="col">Name Song</th>
+                <th class="table-danger" scope="col">Delete Music</th>
+            </tr>
+            </thead>
+            <tbody>
+            <tr *ngFor="let item of playlist2; let id = index">
+                <td class="table-warning">{{id + 1}}</td>
+                <td class="table-primary">{{item.title}}</td>
+                <td class="table-danger">
+                    <button type="button" class="btn btn-danger" (click)="deleteSong(item.link)">Delete</button>
+                </td>
+            </tr>
+            </tbody>
+        </table>
+
+    </div>
+</div>
+
+<app-footer></app-footer>

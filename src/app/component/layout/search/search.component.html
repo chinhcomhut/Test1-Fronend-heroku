@@ -1,0 +1,19 @@
+<form class="form-inline" (ngSubmit)="filter()">
+    <select name="address" class="custom-select form-control mr-2 rounded-sm text-secondary" [(ngModel)]="searchBy">
+        <option value="song" >Tìm theo tên bài hát</option>
+        <option value="singer">Tìm theo tên ca sĩ</option>
+    </select>
+    <div class="input-group" [formGroup]="searchForm">
+
+        <input formControlName="key" type="text" class="form-control" placeholder="Tìm kiếm bài hát ...">
+            <button type="submit" class="btn btn-primary"><i class="fa fa-search"></i></button>
+<!--            <button (click)="unFilter()" type="button" class="btn btn-secondary">Huy</button>-->
+
+    </div>
+</form>
+<!--<form class="form-inline md-form mr-auto mb-4">-->
+<!--    <input class="form-control mr-sm-2" type="text" placeholder="Search" aria-label="Search">-->
+<!--    <button mdbBtn size="sm" gradient="aqua" rounded="true" class="my-0 waves-light" mdbWavesEffect type="submit">Search</button>-->
+<!--</form>-->
+
+

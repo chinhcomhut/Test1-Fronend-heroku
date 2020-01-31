@@ -1,0 +1,13 @@
+<div class="upload-file">
+    <p>Thêm File Nhạc: </p>
+    <input type="file" class="" (change)="onFileChanged($event)" #fileInput>
+    <div style="margin-bottom: 10px; margin-top: 10px">
+        <button (click)="onUpload()" class="btn btn-primary"
+                *ngIf="downloadURL ? !selectedFile:selectedFile">Upload</button>
+    </div>
+    <div *ngIf="downloadURL" style="margin-bottom: 10px; margin-top: 10px">
+        <audio controls>
+            <source [src]="downloadURL" style="width: 350px; height: auto">
+        </audio>
+    </div>
+</div>

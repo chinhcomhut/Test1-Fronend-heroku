@@ -1,0 +1,95 @@
+<app-title-page [content]="title"></app-title-page>
+<div class="container">
+    <div class="container-fluid row">
+        <div class="col-3">
+            <app-menu-left></app-menu-left>
+        </div>
+
+        <!--    List-music-->
+        <div class="col-9" style="margin-bottom: 10px">
+            <p>You can see <code>Danh sách bài hát</code>, listen to music and edit or delete song.</p>
+            <table class="table table-striped" *ngIf="songList">
+                <thead>
+                <tr>
+                    <th scope="col"><i class="fas fa-bars"></i></th>
+                    <th scope="col" class="col-md-5">Name song</th>
+                    <th scope="col" class="col-md-3">Singer</th>
+                    <th scope="col" class="col-md-2">Category</th>
+                    <th scope="col" class="col-md-3">Delete</th>
+                </tr>
+                </thead>
+                <tbody>
+                <!--        list-song-code-chinh-->
+                <tr *ngFor="let song of songList">
+                    <th scope="row">{{ song.id }}</th>
+
+                    <td><a class="namesong" [routerLink]="['/home/song/play',song.id]">{{ song.nameSong }}</a></td>
+                    <td><a>{{ song.singer }}</a></td>
+                    <td><a>{{ song.category }}</a></td>
+                    <td>
+                        <!--            <button class="btn btn-danger" (click)="editSong(song.id)">Sửa</button>-->
+
+                        <button class="btn btn-danger" (click)="deleteSong(song.id)">Xóa</button>
+                    </td>
+                    <td>
+                        <button class="btn btn-success mr-1" [routerLink]="['/update-song/', song.id]">Sửa</button>
+                    </td>
+                </tr>
+                </tbody>
+            </table>
+
+            <!-- Pagination-->
+            <!--      <div class="d-flex justify-content-between p-2">-->
+            <!--        <ngb-pagination [collectionSize]="collectionSize" [(page)]="page" [pageSize]="pageSize">-->
+            <!--        </ngb-pagination>-->
+            <!--        <select class="custom-select" style="width: auto" [(ngModel)]="pageSize">-->
+            <!--          <option [ngValue]="2">2 items per page</option>-->
+            <!--          <option [ngValue]="4">4 items per page</option>-->
+            <!--          <option [ngValue]="6">6 items per page</option>-->
+            <!--        </select>-->
+            <!--      </div>-->
+
+        </div>
+    </div>
+</div>
+<!--<div class="col-12" style="margin-top: 20px;"*ngIf="song">-->
+<!--    <mat-card style="background-color: #f4f4f4; margin-bottom: 70px;">-->
+<!--        <mat-card-header>-->
+<!--            <a target="_top" href="https://flamingtext.com/" ><img src="https://blog.flamingtext.com/blog/2019/12/24/flamingtext_com_1577167243_790730604.gif" border="0" alt="Logo Design by FlamingText.com" title="Logo Design by FlamingText.com"></a>-->
+<!--            <mat-card-subtitle>Material Style Advanced Audio Player</mat-card-subtitle>-->
+<!--        </mat-card-header>-->
+<!--        <mat-card-content class="row justify-contents-around">-->
+<!--            <div class="col py-3 pl-5">-->
+<!--                <h6>Controls</h6>-->
+<!--                <div class="d-flex flex-row px-3">-->
+<!--                    displayTitle:-->
+<!--                    <mat-checkbox class="px-3 mat-advanced-player-display-title" [checked]="msaapDisplayTitle"-->
+<!--                                  (change)="changeMsbapDisplayTitle($event)">{{msaapDisplayTitle}}</mat-checkbox>-->
+<!--                </div>-->
+<!--                <div class="d-flex flex-row px-3">-->
+<!--                    displayPlayList:-->
+<!--                    <mat-checkbox class="px-3 mat-advanced-player-display-playlist"-->
+<!--                                  [checked]="msaapDisplayPlayList"-->
+<!--                                  (change)="changeMsaapDisplayPlayList($event)">{{msaapDisplayPlayList}}</mat-checkbox>-->
+<!--                </div>-->
+<!--                <div class="d-flex flex-row px-3">-->
+<!--                    displayVolumeControls:-->
+<!--                    <mat-checkbox class="px-3 mat-basic-player-display-title"-->
+<!--                                  [checked]="msaapDisplayVolumeControls"-->
+<!--                                  (change)="changeMsaapDisplayVolumeControls($event)">{{msaapDisplayVolumeControls}}</mat-checkbox>-->
+<!--                </div>-->
+<!--            </div>-->
+<!--            <div class="col">-->
+<!--                <mat-advanced-audio-player [playlist]="msaapPlaylist"-->
+<!--                                           [displayTitle]="msaapDisplayTitle"-->
+<!--                                           [displayPlaylist]="msaapDisplayPlayList" [autoPlay]="false"-->
+<!--                                           muted="muted"-->
+<!--                                           [pageSizeOptions]="pageSizeOptions"-->
+<!--                                           [displayVolumeControls]="msaapDisplayVolumeControls"-->
+<!--                                           [expanded]="true"></mat-advanced-audio-player>-->
+<!--            </div>-->
+<!--        </mat-card-content>-->
+<!--    </mat-card>-->
+<!--</div>-->
+
+<app-footer></app-footer>

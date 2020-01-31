@@ -1,0 +1,38 @@
+<app-title-page [content]="title"></app-title-page>
+
+<div class="container">
+    <div class="container-fluid row">
+        <div class="col-3">
+            <app-menu-left></app-menu-left>
+        </div>
+        <div class="col-9" style="margin-bottom: 10px">
+            <p>You can see <code>Danh sách Playlist</code>, listen to music and edit or delete playlist.</p>
+            <!-- Default input -->
+            <table class="table">
+                <thead class="thead-dark">
+                <tr>
+                    <th scope="col"><i class="fas fa-list"></i></th>
+                    <th scope="col">Tên Playlist</th>
+                    <!--          <th scope="col">ID</th>-->
+                    <th scope="col">Chức Năng</th>
+                </tr>
+                </thead>
+                <tbody>
+                <tr *ngFor="let playlist of playlistInfors">
+                    <th scope="row">#</th>
+                    <td><a class="namesong" [routerLink]="['/my-playlist/',playlist.id]">{{ playlist.playlistName }}</a></td>
+                    <!--          <td>{{playlist.id}}</td>-->
+                    <td>
+                        <button class="btn btn-success mr-1" [routerLink]="['/update-playlist/', playlist.id]">Sửa</button>
+                        <button class="btn btn-primary" style="margin-left: 50px" [routerLink]="['/add-song',playlist.id]">Add Song</button>
+                        <button class="btn btn-danger mr-1" style="margin-left: 70px" (click)="deleteSong(playlist.id)">Xóa</button>
+                    </td>
+                </tr>
+                </tbody>
+            </table>
+        </div>
+    </div>
+</div>
+
+<app-footer></app-footer>
+

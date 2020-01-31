@@ -1,0 +1,23 @@
+<div class="container">
+    <div class="row">
+
+        <div class="col-2" *ngFor="let song of songList">
+            <div [routerLink]="['/home/song/play',song.id]"
+                 class="rounded mb-4 play portfolio-effect__item portfolio-item--eff1"
+                 style="width: 150px;height: 150px">
+                <img class="img-fluid portfolio-item__image"
+                     src="{{song.avatarUrl}}"
+                     alt="{{song.nameSong}}">
+                <div class="portfolio-item__info">
+                    <!--        <i class="fas fa-play-circle fa-3x"></i>-->
+                </div>
+            </div>
+            <h4 [routerLink]="['/home/song/play',song.id]" class="font-weight-bold mb-3" style="font-size: 80%">
+                <strong>{{song.nameSong}}</strong></h4>
+            <p>Ca sỹ - <a class="font-weight-bold">{{song.singer}}</a></p>
+            <p>Thể loại - <a class="font-weight-bold">{{song.category}}</a></p>
+        </div>
+
+    </div>
+
+</div>

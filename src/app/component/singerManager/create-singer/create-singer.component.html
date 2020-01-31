@@ -1,0 +1,34 @@
+<app-title-page [content]="title"></app-title-page>
+
+<div class="container">
+    <div class="container-fluid row">
+        <div class="col-3">
+            <app-menu-left></app-menu-left>
+        </div>
+        <div class="col-5" style="margin-bottom: 10px" >
+            <form (ngSubmit)="createSinger()" [formGroup]="singerForm" >
+                <div class="form-group">
+                    <label>Tên Ca Sĩ: </label>
+                    <input type="text" class="form-control" [(ngModel)]="singer.nameSinger"
+                           formControlName="nameSinger"
+                           placeholder="Nhập vào tên ca sĩ">
+                </div>
+
+                <div class="form-group">
+                    <label>Information: </label>
+                    <textarea class="form-control" [(ngModel)]="singer.information"
+                              formControlName="description"
+                              placeholder="Nhập vào mô tả"></textarea>
+                </div>
+                <div style="margin-bottom: 20px">
+                    <button type="submit" class="btn btn-primary">Thêm Ca Sĩ</button>
+                </div>
+            </form>
+        </div>
+        <div class="col-4" style="margin-bottom: 10px">
+            <app-upload-avatar (giveURLtoCreate)="onAvatar($event)"></app-upload-avatar>
+        </div>
+    </div>
+</div>
+
+<app-footer></app-footer>

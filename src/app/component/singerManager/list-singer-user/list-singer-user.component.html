@@ -1,0 +1,39 @@
+<app-title-page [content]="title"></app-title-page>
+<div class="container">
+    <div class="container-fluid row">
+        <div class="col-3">
+            <app-menu-left></app-menu-left>
+        </div>
+
+        <div class="col-9" style="margin-bottom: 10px">
+            <p>You can see <code>Danh sách Ca Sĩ Của Tôi</code>, listen to music and edit or delete ca si.</p>
+            <table class="table table-striped" *ngIf="listSinger">
+                <thead>
+                <tr>
+                    <th scope="col"><i class="fas fa-bars"></i></th>
+                    <th scope="col" class="col-md-5">Name Singer</th>
+                    <th scope="col" class="col-md-3">Note</th>
+                </tr>
+                </thead>
+                <tbody>
+                <tr *ngFor="let listsingers of listSinger">
+                    <td scope="row">{{ listsingers.id }}</td>
+
+                    <td><a class="namesong" [routerLink]="['/detail-singer/',listsingers.id]">{{ listsingers.nameSinger }}</a></td>
+                    <td>
+                        <button class="btn btn-danger" (click)="deleteSong(listsingers.id)">Xóa</button>
+                    </td>
+                    <td>
+                        <button class="btn btn-danger" [routerLink]="['/add-song-singer/',listsingers.id]" >Thêm Song</button>
+                    </td>
+                    <td>
+                        <button class="btn btn-danger mr-1" [routerLink]="['/update-singer/', listsingers.id]">Sửa</button>
+                    </td>
+                </tr>
+                </tbody>
+            </table>
+        </div>
+    </div>
+</div>
+
+<app-footer></app-footer>

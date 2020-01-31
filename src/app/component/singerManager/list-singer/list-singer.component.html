@@ -1,0 +1,28 @@
+<div class="space"></div>
+
+<app-carousel-list-singer></app-carousel-list-singer>
+<hr>
+
+<div class="container mt-3">
+    <h1>Danh Sách Ca Sĩ</h1>
+    <hr>
+    <div class="row mt-4" *ngIf="singerList">
+        <div class="col-3" *ngFor="let singers of singerList">
+            <div class="card-header mb-3">
+                <div class="text-center" [routerLink]="['/detail-singer/',singers.id]">
+                    <img [src]=singers.singerAvatar alt="" class="avatar-singer">
+                    <!-- Singer Avatar -->
+                </div>
+                <div class="mt-3 text-center">
+                    <a [routerLink]="['/detail-singer/',singers.id]">{{singers.nameSinger}}</a>
+                </div>
+                <div class="offset-4 mt-5">
+                    <a routerLink="#" class="btn btn-outline-info">Follow</a>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+
+<hr>
+<app-footer></app-footer>

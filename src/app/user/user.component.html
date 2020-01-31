@@ -1,0 +1,126 @@
+<div class="container">
+    <div class="col-lg-12 col-md-12">
+        <div class="row">
+            <div class="example-box" style="margin: auto" cdkDrag>
+
+                <div *ngIf="info.token; else loggedOut">
+                    <h6 style="color: #960050">Di chuyển Box! Nếu Bạn Thích!</h6>
+                    <h5 class="text-primary">Your Information</h5>
+                    <p>
+                        <strong>Username:</strong> {{info.username}}<br/>
+                        <!--                    <strong>Roles:</strong> {{info.roles}}<br/>-->
+                        <!--                    <strong>Token:</strong> {{info.token}}.-->
+                    </p>
+                    <button class="btn btn-danger" (click)="logout()">Logout</button>
+                    <button class="btn btn-primary" routerLink="/changepass">Change Pass</button>
+                </div>
+                <ng-template #loggedOut>
+                    Please login.
+                </ng-template>
+            </div>
+            <div>
+            </div>
+    </div>
+
+
+        <div class="card-header">
+            <h4>QUẢN LÝ THƯ VIỆN CỦA BẠN</h4>
+        </div>
+        <div class="dropdown-divider"></div>
+        <div class="list-group">
+            <a routerLink="/list-song" class="list-group-item list-group-item-success">
+                <i class="fas fa-list"></i> Danh các bài hát bạn đã tạo
+            </a>
+            <a routerLink="/list-playlist" class="list-group-item list-group-item-success">
+                <i class="fas fa-list"></i> Danh sách Playlist của bạn
+            </a>
+            <a routerLink="/list-singer-users" class="list-group-item list-group-item-success">
+                <i class="fas fa-list"></i> Danh sách Ca Sĩ của bạn
+            </a>
+            <div class="dropdown-divider"></div>
+            <a routerLink="/createmusic" class="list-group-item list-group-item-warning">
+                <i class="far fa-plus-square"></i> Tạo bài hát mới
+            </a>
+            <a routerLink="/create-playlist" class="list-group-item list-group-item-warning">
+                <i class="far fa-plus-square"></i> Tạo playlist mới
+            </a>
+            <a routerLink="/create-singer" class="list-group-item list-group-item-warning">
+                <i class="far fa-plus-square"></i> Tạo ca sĩ mới
+            </a>
+        </div>
+
+
+
+<!--<div *ngFor="let song of playlist2">title: {{song.title}} + link : {{song.link}}</div>-->
+<!--<div class="container">-->
+<!--    <div class="row">-->
+<!--        <table class="table table-hover">-->
+<!--            <thead>-->
+<!--            <tr>-->
+<!--                <th class="table-warning" scope="col">STT</th>-->
+<!--                <th class="table-primary" scope="col">Name Song</th>-->
+<!--                <th class="table-danger" scope="col">Delete Music</th>-->
+<!--            </tr>-->
+<!--            </thead>-->
+<!--            <tbody>-->
+<!--            <tr *ngFor="let item of playlist2; let id = index">-->
+<!--                <td class="table-warning">{{id + 1}}</td>-->
+<!--                <td class="table-primary">{{item.title}}</td>-->
+<!--                <td class="table-danger">-->
+<!--                    <button type="button" class="btn btn-danger"(click)="deleteSong(delete.id)">Delete</button>-->
+<!--                </td>-->
+<!--            </tr>-->
+<!--            </tbody>-->
+<!--        </table>-->
+
+<!--    </div>-->
+<!--</div>-->
+
+<!--<app-footer></app-footer>-->
+
+<!--            <div class="mt-2">-->
+<!--                <app-search (press)="update($event)"></app-search>-->
+<!--            </div>-->
+<!--            <hr>-->
+<!--            <div>-->
+<!--                <h3 routerLink="#" class="mb-5 mt-2" style="color: deeppink; font-weight: bold">-->
+<!--                    <img src="./assets/img/bg-img/new.jpg" style="width: 7%">-->
+<!--                    Bài Hát Mới Nhất-->
+<!--                </h3>-->
+<!--            </div>-->
+<!--            <div class="row mt-3">-->
+
+<!--                <div class="col-2" *ngFor="let song of songList">-->
+<!--                    <div [routerLink]="['/home/song/play',song.id]"-->
+<!--                         class="rounded mb-4 play portfolio-effect__item portfolio-item&#45;&#45;eff1"-->
+<!--                         style="width: 150px;height: 150px">-->
+<!--                        <img class="img-fluid portfolio-item__image"-->
+<!--                             src="{{song.avatarUrl}}">-->
+<!--&lt;!&ndash;                             alt="{{song.nameSong}}">&ndash;&gt;-->
+<!--                        <div class="portfolio-item__info">-->
+<!--                            <i class="fas fa-play-circle fa-3x"></i>-->
+<!--                        </div>-->
+<!--                    </div>-->
+<!--                    <a [routerLink]="['/home/song/play',song.id]" class="font-weight-bold mb-3" style="font-size: 14px">-->
+<!--                        <strong>{{song.nameSong}}</strong>-->
+<!--                    </a>-->
+<!--                    <p style="font-size: 70%" class="mt-3">Ca sĩ - <a class="font-weight-bold">{{song.singer}}</a></p>-->
+<!--                    <p style="font-size: 70%">Thể loại - <a class="font-weight-bold">{{song.category}}</a></p>-->
+<!--                </div>-->
+
+<!--            </div>-->
+<!--        </div>-->
+
+<!--        <hr>-->
+<!--        <app-list-song></app-list-song>-->
+<!--        <a  routerLink="/uploadfile"style="color: mediumvioletred; margin-left: 10px;text-decoration: none;" class="docs-button mat-raised-button" mat-raised-button=""-->
+<!--           tabindex="0" aria-disabled="false"-->
+<!--        ><mat-icon aria-hidden="false" aria-label="Example home icon">star half</mat-icon>-->
+<!--            <span-->
+<!--                    class="mat-button-wrapper">Upload File</span>-->
+
+<!--            &lt;!&ndash;            <div class="mat-button-ripple mat-ripple" matripple=""></div>&ndash;&gt;-->
+<!--            &lt;!&ndash;            <div class="mat-button-focus-overlay"></div>&ndash;&gt;-->
+<!--        </a>-->
+
+<!--<app-change-pass></app-change-pass>-->

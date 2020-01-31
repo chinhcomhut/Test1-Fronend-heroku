@@ -1,0 +1,313 @@
+<!--<div class="card space-top">-->
+<!--    <app-carousel></app-carousel>-->
+<!--</div>-->
+
+<div class="container mt-3">
+    <div class="card">
+        <div class="card-body">
+                  NEW SONG
+            <div>
+<!--                <div class="mt-2">-->
+                    <mat-toolbar-row>
+                        <app-search (press)="update($event)"></app-search>
+                    </mat-toolbar-row>
+
+<!--                </div>-->
+                <hr>
+                <div>
+                    <h3 routerLink="#" class="mb-5 mt-2" style="color: deeppink; font-weight: bold">
+                        <img src="../../../../assets/images/icons/new.jpg" height="70" width="200"/>
+                        Bài Hát Mới Nhất
+                    </h3>
+                </div>
+                <div class="row mt-3">
+
+                    <div class="col-2" *ngFor="let song of songList">
+
+                        <div [routerLink]="['/home/song/play',song.id]"
+                             class="rounded mb-4 play portfolio-effect__item portfolio-item--eff1"
+                             style="width: 150px;height: 150px">
+                            <img class="img-fluid portfolio-item__image"
+                                 src="{{song.avatarUrl}}"
+                                 alt="{{song.nameSong}}">
+<!--                            <div class="portfolio-item__info">-->
+<!--                                <i class="fas fa-play-circle fa-3x"></i>-->
+<!--                            </div>-->
+                        </div>
+                        <a [routerLink]="['/home/song/play',song.id]" class="font-weight-bold mb-3" style="font-size: 14px">
+                            <strong>{{song.nameSong}}</strong>
+                        </a>
+                        <p style="font-size: 70%" class="mt-3">Ca sĩ - <a class="font-weight-bold">{{song.singer}}</a></p>
+                        <p style="font-size: 70%">Thể loại - <a class="font-weight-bold">{{song.category}}</a></p>
+                    </div>
+
+                </div>
+            </div>
+
+            <hr>
+            <!--TOP SONG-->
+
+            <div class="mb-5" id="C1">
+                <h3 routerLink="#" style="color: deeppink; font-weight: bold">
+                    <img src="../../../../assets/images/icons/top.png" height="100" width="100"/>
+                    Top Bài Hát
+                </h3>
+            </div>
+
+            <div class="row">
+
+                <div class="col" *ngFor="let listenSongs of listenSong">
+                    <div [routerLink]="['/home/song/play',listenSongs.id]"
+                         class="rounded mb-4 play portfolio-effect__item portfolio-item--eff1"
+                         style="width: 150px;height: 150px">
+                        <img class="img-fluid portfolio-item__image"
+                             src="{{listenSongs.avatarUrl}}"
+                             alt="{{listenSongs.nameSong}}">
+<!--                        <div class="portfolio-item__info">-->
+<!--                            <i class="fas fa-play-circle fa-3x"></i>-->
+<!--                        </div>-->
+                    </div>
+                    <h4 [routerLink]="['/home/song/play',listenSongs.id]" class="font-weight-bold mb-3" style="font-size: 80%">
+                        <strong>{{listenSongs.nameSong}}</strong></h4>
+                    <p style="font-size: 70%">Ca sĩ - <a class="font-weight-bold">{{listenSongs.singer}}</a></p>
+                    <p style="font-size: 70%">Thể loại - <a class="font-weight-bold">{{listenSongs.category}}</a></p>
+                    <p class="text-center"><i class="fas fa-headphones-alt mr-2"></i>
+                        <a class="font-weight-bold">{{listenSongs.listenSong}}</a>
+                    </p>
+                </div>
+            </div>
+            <hr>
+
+            <!--LIKE SONG-->
+            <div class="mb-5" id="C2">
+                <h3 routerLink="#" style="color: deeppink; font-weight: bold">
+                    <img src="../../../../assets/images/icons/like1.png" alt="" style="width: 6%"/>
+                    Bài Hát Nhiều Lượt Like Nhất
+                </h3>
+            </div>
+
+            <div class="row">
+
+                <div class="col-2" *ngFor="let songLike of listSongLike">
+                    <div [routerLink]="['/home/song/play',songLike.id]"
+                         class="rounded mb-4 play portfolio-effect__item portfolio-item--eff1"
+                         style="width: 150px;height: 150px">
+                        <img class="img-fluid portfolio-item__image"
+                             src="{{songLike.avatarUrl}}"
+                             alt="{{songLike.nameSong}}">
+<!--                        <div class="portfolio-item__info">-->
+<!--                            <i class="fas fa-play-circle fa-3x"></i>-->
+<!--                        </div>-->
+                    </div>
+                    <h4 [routerLink]="['/home/song/play',songLike.id]" class="font-weight-bold mb-3" style="font-size: 80%">
+                        <strong>{{songLike.nameSong}}</strong></h4>
+                    <p style="font-size: 70%">Ca sĩ - <a class="font-weight-bold">{{songLike.singer}}</a></p>
+                    <p style="font-size: 70%">Thể loại - <a class="font-weight-bold">{{songLike.category}}</a></p>
+                    <p class="text-center"><i class="fas fa-thumbs-up mr-2" style="color: #0080FF"></i>
+                        <a class="font-weight-bold">{{songLike.likeSong}}</a>
+                    </p>
+                </div>
+
+            </div>
+            <hr>
+            <div class="mb-5">
+                <h3 routerLink="#" style="color: deeppink; font-weight: bold">
+                    <img src="./assets/img/bg-img/top.png" alt="" style="width: 5%">
+                    Play List
+                </h3>
+            </div>
+
+            <div class="row">
+
+                <div class="col" *ngFor="let play of playlist">
+                    <div [routerLink]="['/my-playlist/',play.id]"
+                         class="rounded mb-4 play portfolio-effect__item portfolio-item--eff1"
+                         style="width: 150px;height: 150px">
+                        <img class="img-fluid portfolio-item__image"
+                             src="{{play.avatarPlaylist}}"
+                             alt="{{play.playlistName}}">
+                        <div class="portfolio-item__info">
+                            <i class="fas fa-play-circle fa-3x"></i>
+                        </div>
+                    </div>
+                    <h4 [routerLink]="['/my-playlist/',play.id]" class="font-weight-bold mb-3" style="font-size: 80%">
+                        <strong>{{play.playlistName}}</strong></h4>
+                </div>
+            </div>
+
+            <hr>
+
+            <div class="mb-5" >
+                <h3 routerLink="/list-singer" style="color: deeppink; font-weight: bold">
+                    <img src="../../../../assets/images/icons/singer.gif" alt="" style="width: 8%">
+
+                    Ca Sĩ
+                </h3>
+            </div>
+
+            <div class="row">
+
+                <div class="col-2" *ngFor="let singer of listSingers">
+                    <div [routerLink]="['/detail-singer/',singer.id]"
+                         class="rounded mb-4 play portfolio-effect__item portfolio-item--eff1"
+                         style="width: 150px;height: 150px">
+                        <img class="img-fluid portfolio-item__image"
+                             src="{{singer.singerAvatar}}"
+                             alt="{{singer.nameSinger}}">
+<!--                        <div class="portfolio-item__info">-->
+<!--                            <i class="fas fa-play-circle fa-3x"></i>-->
+<!--                        </div>-->
+                    </div>
+                    <h4 [routerLink]="['/detail-singer',singer.id]" class="font-weight-bold mb-3" style="font-size: 80%">
+                        <strong>{{singer.nameSinger}}</strong></h4>
+                    <!--          <p style="font-size: 70%">Ca sĩ - <a class="font-weight-bold">{{singer.nameSinger}}</a></p>-->
+                    <!--          <p style="font-size: 70%">Thể loại - <a class="font-weight-bold">{{singer.nameSinger}}</a></p>-->
+                </div>
+
+            </div>
+            <hr>
+
+            <!-- SINGER -->
+            <div class="col">
+                <h3 routerLink="/list-singer" style="color: deeppink; font-weight: bold">
+                    Các Ca Sĩ Liên Quan<i class="fas fa-chevron-right fas-1g ml-2" style="font-size: 80%"></i>
+                </h3>
+            </div>
+            <br><br>
+            <div class="row">
+                <div class="col-md-3">
+                    <div class="ih-item circle effect3 left_to_right">
+                        <a routerLink="/singer/song">
+                            <div class="img"><img
+                                    src="https://avatar-nct.nixcdn.com/singer/avatar/2018/06/27/e/8/8/5/1530074198530_600.jpg"
+                                    alt="img"></div>
+                            <div class="info"><h3>Hà Anh Tuấn</h3>
+                                <p>Singer</p>
+                                <p>Birthday 17/12/1984</p>
+                            </div>
+                        </a>
+                    </div>
+                </div>
+
+                <div class="col-md-3">
+                    <div class="ih-item circle effect3 left_to_right">
+                        <a routerLink="/singer/song">
+                            <div class="img"><img
+                                    src="https://kenh14cdn.com/thumb_w/620/2019/4/1/blackpink-ddu-du-dduu-du-15541345120991868257266.png"
+                                    alt="img"></div>
+                            <div class="info"><h3>Black Pink</h3>
+                                <p>YG Entertainment</p>
+                                <p>Seoul, Hàn Quốc (2016)</p>
+                            </div>
+                        </a>
+                    </div>
+                </div>
+
+                <div class="col-md-3">
+                    <div class="ih-item circle effect3 left_to_right">
+                        <a routerLink="/singer/song">
+                            <div class="img"><img
+                                    src="https://cdn.voh.com.vn/voh/Image/2018/12/20/434225737455109191357645636277370563330048n_20181220150837.jpg"
+                                    alt="img"></div>
+                            <div class="info"><h3>Phương Ly</h3>
+                                <p>Singer</p>
+                                <p>Birthday 28/10/1990</p>
+                            </div>
+                        </a>
+                    </div>
+                </div>
+
+                <div class="col-md-3">
+                    <div class="ih-item circle effect3 left_to_right">
+                        <a routerLink="/singer/song">
+                            <div class="img"><img
+                                    src="https://3.bp.blogspot.com/-2v_EkxEGzos/WKEKNhZvMmI/AAAAAAAAlOs/0Zz4gKvK5Mo9onS0Qrx3nPw2mRc8MZUkACLcB/s1600/HAN%2BSARA%2BT%25E1%25BB%25AA%2BHOTGIRL%2BV%25C3%2580O%2BV%25C3%2592NG%2BGI%25E1%25BA%25A4U%2BM%25E1%25BA%25B6T%2BGI%25E1%25BB%258CNG%2BH%25C3%2581T%2BVI%25E1%25BB%2586T%2B2017%2B%25282%2529.jpg"
+                                    alt="img"></div>
+                            <div class="info"><h3>Han Sara</h3>
+                                <p>Singer, Idol</p>
+                                <p>Birthday 17/11/2000</p>
+                            </div>
+                        </a>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+<br>
+<!--<div class="container">-->
+<!--    <div class="row">-->
+<!--        <div class="col-12" style="margin-top: 20px;">-->
+<!--            <mat-card style="background-color: #f8f8f8; margin: 50px 0;">-->
+<!--                <mat-card-header>-->
+<!--                    <mat-card-title>Material Style Basic Audio Player</mat-card-title>-->
+<!--                    <mat-card-subtitle>Material Style Basic Audio Player</mat-card-subtitle>-->
+<!--                </mat-card-header>-->
+<!--                <mat-card-content class="row justify-contents-around mat-basic-player">-->
+<!--                    <div class="col py-3 pl-5">-->
+<!--                        <h6>Controls</h6>-->
+<!--                        <div class="d-flex flex-row px-3">-->
+<!--                            displayTitle:-->
+<!--                            <mat-checkbox class="px-3 mat-basic-player-display-title" [checked]="msbapDisplayTitle"-->
+<!--                                          (change)="changeMsbapDisplayTitle($event)">{{msbapDisplayTitle}}</mat-checkbox>-->
+<!--                        </div>-->
+<!--                        <div class="d-flex flex-row px-3">-->
+<!--                            displayVolumeControls:-->
+<!--                            <mat-checkbox class="px-3 mat-basic-player-display-title"-->
+<!--                                          [checked]="msbapDisplayVolumeControls"-->
+<!--                                          (change)="changeMsbapDisplayVolumeControls($event)">{{msbapDisplayVolumeControls}}</mat-checkbox>-->
+<!--                        </div>-->
+<!--                    </div>-->
+<!--                    <div class="col">-->
+<!--                        <mat-basic-audio-player class="col-12 col-md-6" [audioUrl]="msbapAudioUrl" [title]="msbapTitle"-->
+<!--                                                [autoPlay]="false" muted="muted"-->
+<!--                                                [displayTitle]="msbapDisplayTitle"-->
+<!--                                                [displayVolumeControls]="msbapDisplayVolumeControls"></mat-basic-audio-player>-->
+<!--                    </div>-->
+<!--                </mat-card-content>-->
+<!--                <div>-->
+<!--                </div>-->
+<!--            </mat-card>-->
+<!--        </div>-->
+<!--        <div class="col-12" style="margin-top: 20px;">-->
+<!--            <mat-card style="background-color: #f4f4f4; margin-bottom: 70px;">-->
+<!--                <mat-card-header>-->
+<!--                    <mat-card-title>Material Style Advanced Audio Player</mat-card-title>-->
+<!--                    <mat-card-subtitle>Material Style Advanced Audio Player</mat-card-subtitle>-->
+<!--                </mat-card-header>-->
+<!--                <mat-card-content class="row justify-contents-around">-->
+<!--                    <div class="col py-3 pl-5">-->
+<!--                        <h6>Controls</h6>-->
+<!--                        <div class="d-flex flex-row px-3">-->
+<!--                            displayTitle:-->
+<!--                            <mat-checkbox class="px-3 mat-advanced-player-display-title" [checked]="msaapDisplayTitle"-->
+<!--                                          (change)="changeMsbapDisplayTitle($event)">{{msaapDisplayTitle}}</mat-checkbox>-->
+<!--                        </div>-->
+<!--                        <div class="d-flex flex-row px-3">-->
+<!--                            displayPlayList:-->
+<!--                            <mat-checkbox class="px-3 mat-advanced-player-display-playlist"-->
+<!--                                          [checked]="msaapDisplayPlayList"-->
+<!--                                          (change)="changeMsaapDisplayPlayList($event)">{{msaapDisplayPlayList}}</mat-checkbox>-->
+<!--                        </div>-->
+<!--                        <div class="d-flex flex-row px-3">-->
+<!--                            displayVolumeControls:-->
+<!--                            <mat-checkbox class="px-3 mat-basic-player-display-title"-->
+<!--                                          [checked]="msaapDisplayVolumeControls"-->
+<!--                                          (change)="changeMsaapDisplayVolumeControls($event)">{{msaapDisplayVolumeControls}}</mat-checkbox>-->
+<!--                        </div>-->
+<!--                    </div>-->
+<!--                    <div class="col" >-->
+
+<!--                        <mat-advanced-audio-player [playlist]="playlist2" [displayTitle]="msaapDisplayTitle"-->
+<!--                                                   [displayPlaylist]="msaapDisplayPlayList" [autoPlay]="false"-->
+<!--                                                   muted="muted"-->
+<!--                                                   [pageSizeOptions]="pageSizeOptions"-->
+<!--                                                   [displayVolumeControls]="msaapDisplayVolumeControls"-->
+<!--                                                   [expanded]="true"></mat-advanced-audio-player>-->
+<!--                    </div>-->
+<!--                </mat-card-content>-->
+<!--            </mat-card>-->
+<!--        </div>-->
+<!--    </div>-->
+<!--</div>-->
+<app-footer></app-footer>

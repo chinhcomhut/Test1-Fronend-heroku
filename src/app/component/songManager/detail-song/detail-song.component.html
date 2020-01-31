@@ -1,0 +1,183 @@
+<!--<br>-->
+<!--<br>-->
+<!--<br>-->
+<!--<div class="container">-->
+<!--    <div class="col" *ngIf="song">-->
+<!--        <div class="header-song">-->
+<!--            <div class="row">-->
+<!--                <div class="col-sm-2">-->
+<!--                    <div class="ih-item circle effect2 left_to_right">-->
+<!--                        <a id="plays_btn">-->
+<!--                            <div class="img"><img src="{{song.avatarUrl}}" alt="{{song.nameSong}}"></div>-->
+<!--                            <div class="info"><h3>Play Music</h3>-->
+<!--                                <p>Enjoy Song</p></div>-->
+<!--                        </a>-->
+<!--                    </div>-->
+<!--                </div>-->
+<!--                <div class="col-md-6">-->
+<!--                    <h3 class="color-letter">Bài hát: {{song.nameSong}}</h3>-->
+<!--                    <p class="color-letter">Ca sĩ: <a class="not-underlined">{{song.singer}}</a></p><br>-->
+<!--                    <p class="color-letter">Thể loại: <a class="not-underlined">{{song.category}}</a></p>-->
+<!--                </div>-->
+<!--                <div class="col-xl-8"></div>-->
+<!--                <div class="col-xl-2" style="color: white"><i class="fas fa-play">{{song.listenSong}}</i></div>-->
+<!--                <div class="col-xl-2" style="color: white"><i class="fas fa-heart">{{song.likeSong}}</i></div>-->
+<!--            </div>-->
+<!--            <div class="col-12 mb-2 mt-4">-->
+<!--                <audio controls style="width: 100%; border-radius: 5px" loop autoplay>-->
+<!--                    <source [src]=song.mp3Url style="width: 350px; height: auto" type="audio/mpeg">-->
+<!--                </audio>-->
+<!--            </div>-->
+<!--        </div>-->
+<!--    </div>-->
+<!--    <br>-->
+<!--    <br>-->
+<!--    <hr>-->
+<!--    <div class="row" style="padding:10px 35px" *ngIf="song">-->
+<!--            <div class="col-md-2">-->
+<!--              <a routerLink="#"><i class="fas fa-folder-plus"> Add to playlist</i></a>-->
+<!--                    <ng-template #content let-c="close" let-d="dismiss">-->
+<!--                      <div class="modal-header">-->
+<!--                        <h4 class="modal-title" id="modal-basic-title">PLAYLIST</h4>-->
+<!--                        <button type="button" class="close" aria-label="Close" (click)="d('Cross click')">-->
+<!--                          <span aria-hidden="true">&times;</span>-->
+<!--                        </button>-->
+<!--                      </div>-->
+<!--                      <div class="modal-body">-->
+<!--                        <ul><a class="list-play-list" routerLink="#">Name Playlist</a></ul>-->
+<!--                      </div>-->
+<!--                      <div class="modal-footer">-->
+<!--                      </div>-->
+<!--                    </ng-template>-->
+<!--            </div>-->
+<!--        <div class="col-md-1">-->
+<!--            <button type="button" class="btn btn-outline-primary" (click)="likeCount(song.id)"><i-->
+<!--                    class="fas fa-thumbs-up"></i></button>-->
+<!--        </div>-->
+
+<!--    <hr>-->
+<!--    <div class="row col-md-12" *ngIf="song">-->
+<!--        <div class="row col-md-12" style="padding:10px 35px">-->
+<!--            <div class="col-md-1">-->
+<!--                <img src="{{song.avatarUrl}}" alt="{{song.nameSong}}" class="avatar">-->
+<!--            </div>-->
+<!--            <div class="col-md-2">-->
+<!--                <p>Name Song :</p>-->
+<!--                <a routerLink="#">{{song.singer}}</a>-->
+<!--            </div>-->
+<!--            <div class="card-footer row" style="padding:10px 35px">-->
+<!--                <div class="col-md-12"><h2>Lyrics: </h2></div>-->
+<!--                <div class="col-md-12">-->
+<!--                    <p>{{song.lyrics}}</p>-->
+<!--                </div>-->
+<!--            </div>-->
+<!--        </div>-->
+<!--    </div>-->
+<!--    <hr>-->
+<!--    <div class="row col-md-12" style="padding:10px 35px">-->
+<!--        <div class="col-md-12">-->
+<!--            <h2>Comments: </h2>-->
+<!--        </div>-->
+<!--        <hr>-->
+<!--        <div id="fb-root"></div>-->
+<!--        <div class="fb-comments col-md-8" data-href="https://www.facebook.com/tinhnt020795" data-width=""-->
+<!--             data-numposts="5"></div>-->
+<!--    </div>-->
+
+<div class="container" *ngIf="song">
+    <div class="row">
+        <div class="col-12" style="margin-top: 20px;">
+            <mat-card style="background-color: #66d9ef; margin: 50px 0;">
+                <mat-card-header>
+                    <mat-card-title style="color: mediumvioletred"><img src="https://blog.flamingtext.com/blog/2019/12/21/flamingtext_com_1576921613_657209086.gif" border="0" alt="Logo Design by FlamingText.com" title="Logo Design by FlamingText.com">
+                    </mat-card-title>
+                    <mat-card-subtitle style="color: blue">Bài hát: {{song.nameSong}}</mat-card-subtitle>
+                    <img src="{{song.avatarUrl}}"width="200"height="200">
+                    <mat-icon svgIcon="thumbs-up" aria-hidden="false" aria-label="Example thumbs up SVG icon"></mat-icon>
+                </mat-card-header>
+                <div>
+                    <a (click)="likeCount(song.id)"style="color: mediumvioletred; margin-left: 10px;text-decoration: none;" class="docs-button mat-raised-button" mat-raised-button=""
+                       tabindex="0" aria-disabled="false"
+                    ><mat-icon aria-hidden="false" aria-label="Example home icon">thumb_up</mat-icon>{{song.likeSong}}
+
+
+                        <!--            <div class="mat-button-ripple mat-ripple" matripple=""></div>-->
+                        <!--            <div class="mat-button-focus-overlay"></div>-->
+                    </a>   <share-buttons style="margin-left: 8px" [theme]="'material-light'" [include]="['facebook']"
+                                          [show]="6" [size]="2" [url]="'https://github.com/chinhcomhut'" [title]="'Angular Audio Player'"></share-buttons>
+
+
+                </div>
+
+                <mat-card-content class="row justify-contents-around mat-basic-player">
+                    <div class="col py-3 pl-5" >
+                        <mat-icon svgIcon="thumbs-up" aria-hidden="false" aria-label="Example thumbs up SVG icon"></mat-icon>
+                        <h6>Controls</h6>
+                        <div class="d-flex flex-row px-3">
+                            displayTitle:
+                            <mat-checkbox class="px-3 mat-basic-player-display-title" [checked]="msbapDisplayTitle"
+                                          (change)="changeMsbapDisplayTitle($event)">{{msbapDisplayTitle}}</mat-checkbox>
+                        </div>
+                        <div class="d-flex flex-row px-3">
+                            displayVolumeControls:
+                            <mat-checkbox class="px-3 mat-basic-player-display-title"
+                                          [checked]="msbapDisplayVolumeControls"
+                                          (change)="changeMsbapDisplayVolumeControls($event)">{{msbapDisplayVolumeControls}}</mat-checkbox>
+                        </div>
+                    </div>
+                    <div class="col">
+                        <mat-basic-audio-player class="col-12 col-md-6" [audioUrl]="song.mp3Url" [title]="song.lyrics"
+                                                [autoPlay]="true" muted="muted"
+                                                [displayTitle]="msbapDisplayTitle"
+                                                [displayVolumeControls]="msbapDisplayVolumeControls">{{listenCounter==listenCounter+1}}
+
+                        </mat-basic-audio-player>
+
+                    </div>
+                </mat-card-content>
+                <div>
+                </div>
+            </mat-card>
+        </div>
+<!--        <div class="col-12" style="margin-top: 20px;">-->
+<!--            <mat-card style="background-color: #f4f4f4; margin-bottom: 70px;">-->
+<!--                <mat-card-header>-->
+<!--                    <mat-card-title>Material Style Advanced Audio Player</mat-card-title>-->
+<!--                    <mat-card-subtitle>Material Style Advanced Audio Player</mat-card-subtitle>-->
+<!--                </mat-card-header>-->
+<!--                <mat-card-content class="row justify-contents-around">-->
+<!--                    <div class="col py-3 pl-5">-->
+<!--                        <h6>Controls</h6>-->
+<!--                        <div class="d-flex flex-row px-3">-->
+<!--                            displayTitle:-->
+<!--                            <mat-checkbox class="px-3 mat-advanced-player-display-title" [checked]="msaapDisplayTitle"-->
+<!--                                          (change)="changeMsbapDisplayTitle($event)">{{msaapDisplayTitle}}</mat-checkbox>-->
+<!--                        </div>-->
+<!--                        <div class="d-flex flex-row px-3">-->
+<!--                            displayPlayList:-->
+<!--                            <mat-checkbox class="px-3 mat-advanced-player-display-playlist"-->
+<!--                                          [checked]="msaapDisplayPlayList"-->
+<!--                                          (change)="changeMsaapDisplayPlayList($event)">{{msaapDisplayPlayList}}</mat-checkbox>-->
+<!--                        </div>-->
+<!--                        <div class="d-flex flex-row px-3">-->
+<!--                            displayVolumeControls:-->
+<!--                            <mat-checkbox class="px-3 mat-basic-player-display-title"-->
+<!--                                          [checked]="msaapDisplayVolumeControls"-->
+<!--                                          (change)="changeMsaapDisplayVolumeControls($event)">{{msaapDisplayVolumeControls}}</mat-checkbox>-->
+<!--                        </div>-->
+<!--                    </div>-->
+<!--                    <div class="col">-->
+<!--                        <mat-advanced-audio-player [playlist]=""-->
+<!--                                                   [displayTitle]="msaapDisplayTitle"-->
+<!--                                                   [displayPlaylist]="msaapDisplayPlayList" [autoPlay]="false"-->
+<!--                                                   muted="muted"-->
+<!--                                                   [pageSizeOptions]="pageSizeOptions"-->
+<!--                                                   [displayVolumeControls]="msaapDisplayVolumeControls"-->
+<!--                                                   [expanded]="true"></mat-advanced-audio-player>-->
+<!--                    </div>-->
+<!--                </mat-card-content>-->
+<!--            </mat-card>-->
+<!--        </div>-->
+<!--    </div>-->
+<!--</div>-->
+

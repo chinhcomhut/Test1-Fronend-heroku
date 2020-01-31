@@ -1,0 +1,27 @@
+<br>
+<br>
+<br>
+<br>
+<div class="top">
+    <h2>Update Playlist</h2>
+</div>
+<div class="container">
+    <div class="container-fluid row">
+        <div class="col-3">
+            <app-menu-left></app-menu-left>
+        </div>
+        <div class="col-9" style="margin-bottom: 10px" >
+            <form  [formGroup]="songForm" *ngIf="song">
+                <!-- Default input -->
+                <label for="exampleForm2" style="margin-bottom: 10px">
+                    Nhập tên Song mới của bạn:
+                </label>
+                <input [(ngModel)]="song.nameSong" formControlName="nameSong" type="text" id="exampleForm2" class="form-control"
+                       placeholder="Nhập tên song...">
+                <br>
+                <button type="submit" (click)="updateSong()" class="btn btn-primary">Update Song</button>
+            </form>
+        </div>
+    </div>
+</div>
+
