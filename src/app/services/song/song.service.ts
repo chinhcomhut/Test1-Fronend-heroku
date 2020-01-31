@@ -8,16 +8,16 @@ import {environment} from '../../../environments/environment';
   providedIn: 'root'
 })
 export class SongService {
-private readonly API_URL_CREATE = environment.URL + '/api/songs/creates';
-  private readonly API_URL_GET = environment.URL + '/api/songs';
-  private readonly API_URL_GET_ID = environment.URL + '/api/songs';
-  private readonly API_URL_PUT = environment.URL + '/api/songs/update';
-  private readonly API_URL_DELETE = environment.URL + '/api/songs/by';
-  private likedSongByIdUrl = 'http://localhost:8080/api/songs/like';
-  private likeSongUrl = 'http://localhost:8080/api/songs/toplike';
-  private listSongUserId = 'http://localhost:8080/api/auth/listSongByUser';
-  private listenSong = 'http://localhost:8080/api/songs/toplisten';
-  private searchSong = 'http://localhost:8080/api/songs/search';
+private readonly API_URL_CREATE = environment.URL + '/api/song';
+  private readonly API_URL_GET = environment.URL + '/api/song';
+  private readonly API_URL_GET_ID = environment.URL + '/api/song';
+  private readonly API_URL_PUT = environment.URL + '/api/song';
+  private readonly API_URL_DELETE = environment.URL + '/api/song';
+  private likedSongByIdUrl = 'https://back-end-mp3.herokuapp.com/api/songs/like';
+  private likeSongUrl = 'https://back-end-mp3.herokuapp.com/api/songs/toplike';
+  private listSongUserId = 'https://back-end-mp3.herokuapp.com/api/auth/listSongByUser';
+  private listenSong = 'https://back-end-mp3.herokuapp.com/api/songs/toplisten';
+  private searchSong = 'https://back-end-mp3.herokuapp.com/api/songs/search';
 
   constructor(private http: HttpClient, private authenService: AuthService) { }
   getSong(): Observable<any> {

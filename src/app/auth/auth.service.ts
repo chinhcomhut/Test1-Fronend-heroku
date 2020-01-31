@@ -19,10 +19,10 @@ const AUTHORITIES_KEY = 'AuthAuthorities';
 })
 export class AuthService {
 
-  private loginUrl = 'http://localhost:8080/api/auth/signin';
-  private signupUrl = 'http://localhost:8080/api/auth/signup';
-  private updateProfileUrl = 'http://localhost:8080/api/auth/updateuser';
-  private changePassUrl = 'http://localhost:8080/api/auth/changePassword';
+  private loginUrl = 'https://back-end-mp3.herokuapp.com/api/auth/signin';
+  private signupUrl = 'https://back-end-mp3.herokuapp.com/api/auth/signup';
+  private updateProfileUrl = 'https://back-end-mp3.herokuapp.com/api/auth/updateuser';
+  private changePassUrl = 'https://back-end-mp3.herokuapp.com/api/auth/changePassword';
   constructor(private http: HttpClient) {
   }
 
