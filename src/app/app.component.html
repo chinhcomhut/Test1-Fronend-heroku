@@ -2,7 +2,7 @@
     <mat-toolbar-row class="mat-elevation-z6">
         <a style="color: white; text-decoration: none;" aria-label="Angular Audio Player" class="docs-button mat-button"
             mat-button tabindex="0" aria-disabled="false" [routerLink]="['/']"><span class="mat-button-wrapper"><img
-                    width="30px;" alt="angular" class="docs-angular-logo" src="assets/images/logos/angular/apple-touch-icon.png"><b>Siêu Chiến Đội MP3</b></span>
+                    width="30px;" alt="angular" class="docs-angular-logo" src="assets/images/logos/angular/apple-touch-icon.png"><b>Nguyễn Đồng Chính MP3</b></span>
             <div class="mat-button-ripple mat-ripple" matripple=""></div>
             <div class="mat-button-focus-overlay"></div>
         </a><span class="example-spacer"></span>
@@ -25,33 +25,33 @@
             <div class="mat-button-focus-overlay"></div>
         </a>
 
-        <a *ngIf="authority === 'user'" routerLink="user"style="color: mediumvioletred; margin-left: 10px;text-decoration: none;" class="docs-button mat-raised-button" mat-raised-button=""
-            tabindex="0" aria-disabled="false"
-           ><mat-icon>account_box</mat-icon>
-            <span
-                    class="mat-button-wrapper">User Account</span>
-
-            <div class="mat-button-ripple mat-ripple" matripple=""></div>
-            <div class="mat-button-focus-overlay"></div>
-        </a>
-        <a *ngIf="!authority" routerLink="auth/login"style="color: mediumvioletred; margin-left: 10px;text-decoration: none;" class="docs-button mat-raised-button" mat-raised-button=""
-           tabindex="0" aria-disabled="false"
-        ><mat-icon aria-hidden="false" aria-label="Example home icon">star half</mat-icon>
-            <span
-                    class="mat-button-wrapper">Login</span>
+<!--        <a *ngIf="authority === 'user'" routerLink="user"style="color: mediumvioletred; margin-left: 10px;text-decoration: none;" class="docs-button mat-raised-button" mat-raised-button=""-->
+<!--            tabindex="0" aria-disabled="false"-->
+<!--           ><mat-icon>account_box</mat-icon>-->
+<!--            <span-->
+<!--                    class="mat-button-wrapper">User Account</span>-->
 
 <!--            <div class="mat-button-ripple mat-ripple" matripple=""></div>-->
 <!--            <div class="mat-button-focus-overlay"></div>-->
-        </a>
-        <a *ngIf="authority ==='user'" routerLink="/createmusic"style="color: mediumvioletred; margin-left: 10px;text-decoration: none;" class="docs-button mat-raised-button" mat-raised-button=""
-           tabindex="0" aria-disabled="false"
-        ><mat-icon aria-hidden="false" aria-label="Example home icon">library_music</mat-icon>
-            <span
-                    class="mat-button-wrapper">CreateMusic</span>
+<!--        </a>-->
+<!--        <a *ngIf="!authority" routerLink="auth/login"style="color: mediumvioletred; margin-left: 10px;text-decoration: none;" class="docs-button mat-raised-button" mat-raised-button=""-->
+<!--           tabindex="0" aria-disabled="false"-->
+<!--        ><mat-icon aria-hidden="false" aria-label="Example home icon">star half</mat-icon>-->
+<!--            <span-->
+<!--                    class="mat-button-wrapper">Login</span>-->
 
-            <!--            <div class="mat-button-ripple mat-ripple" matripple=""></div>-->
-            <!--            <div class="mat-button-focus-overlay"></div>-->
-        </a>
+<!--&lt;!&ndash;            <div class="mat-button-ripple mat-ripple" matripple=""></div>&ndash;&gt;-->
+<!--&lt;!&ndash;            <div class="mat-button-focus-overlay"></div>&ndash;&gt;-->
+<!--        </a>-->
+<!--        <a *ngIf="authority ==='user'" routerLink="/createmusic"style="color: mediumvioletred; margin-left: 10px;text-decoration: none;" class="docs-button mat-raised-button" mat-raised-button=""-->
+<!--           tabindex="0" aria-disabled="false"-->
+<!--        ><mat-icon aria-hidden="false" aria-label="Example home icon">library_music</mat-icon>-->
+<!--            <span-->
+<!--                    class="mat-button-wrapper">CreateMusic</span>-->
+
+<!--            &lt;!&ndash;            <div class="mat-button-ripple mat-ripple" matripple=""></div>&ndash;&gt;-->
+<!--            &lt;!&ndash;            <div class="mat-button-focus-overlay"></div>&ndash;&gt;-->
+<!--        </a>-->
 <!--        <a *ngIf="authority ==='user'" routerLink="/list"style="color: mediumvioletred; margin-left: 10px;text-decoration: none;" class="docs-button mat-raised-button" mat-raised-button=""-->
 <!--           tabindex="0" aria-disabled="false"-->
 <!--        ><mat-icon aria-hidden="false" aria-label="Example home icon">star half</mat-icon>-->
@@ -63,6 +63,29 @@
 
 <!--     <app-search (press)="update($event)"style="margin-left: 270px" ></app-search>-->
            <!--            <div class="mat-button-focus-overlay"></div>-->
+        <ul class="navbar-nav px-3">
+            <div *ngIf="info.token; else logIn">
+                <div class="btn-group">
+                    <button type="button" class="btn btn-outline-secondary text-light border-1" [routerLink]="'/user'">{{info.name}}</button>
+                    <button type="button" class="btn btn-outline-secondary dropdown-toggle dropdown-toggle-split border-2" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                        <span class="sr-only">Toggle</span>
+                    </button>
+                    <div class="dropdown-menu" style="background: darkgrey">
+                        <a class="dropdown-item" [routerLink]="'/profile'">Settings</a>
+                        <div class="dropdown-divider"></div>
+                        <a class="dropdown-item " (click)="logout()" >Logout</a>
+                    </div>
+                </div>
+            </div>
+
+            <ng-template #logIn>
+                <div class="btn-group ">
+                    <button class="btn btn-outline-secondary btn-lg border-1 text-light" type="button"  [routerLink]="'/login'" data-toggle="dropdown" >
+                        Login
+                    </button>
+                </div>
+            </ng-template>
+        </ul>
 
     </mat-toolbar-row>
 
@@ -74,7 +97,7 @@
     <div class="container">
         <div class="row py-4 d-flex align-items-center">
             <div class="col-md-6 col-lg-5 text-center text-md-left mb-4 mb-md-0">
-                <h6 class="mb-0">SIÊU CHIẾN ĐỘI MUSIC</h6>
+                <h6 class="mb-0">NGUYỄN ĐỒNG CHÍNH MUSIC</h6>
             </div>
             <div class="col-md-6 col-lg-7 text-center text-md-right">
                 <share-buttons [theme]="'material-light'" [include]="['facebook']"

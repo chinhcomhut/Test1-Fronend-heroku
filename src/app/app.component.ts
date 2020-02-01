@@ -14,26 +14,27 @@ export class AppComponent implements OnInit {
  authority: string;
 songList: Song[] = [];
 info: any;
+username: '';
 constructor(private tokenStorage: TokenStorageService,
             private songService: SongService) {
 }
-  ngOnInit(): void {
-    if (this.tokenStorage.getToken()) {
-      this.roles = this.tokenStorage.getAuthorities();
-      this.roles.every(role => {
-        if (role === 'ADMIN') {
-          this.authority = 'admin';
-          return false;
-        } else if (role === 'PM') {
-          this.authority = 'pm';
-          return false;
-        }
-        if ( role === 'USER') {
-          this.authority = 'user';
-          return true;
-        }
-      });
-    }
+  ngOnInit() {
+    // if (this.tokenStorage.getToken()) {
+    //   this.roles = this.tokenStorage.getAuthorities();
+    //   this.roles.every(role => {
+    //     if (role === 'ADMIN') {
+    //       this.authority = 'admin';
+    //       return false;
+    //     } else if (role === 'PM') {
+    //       this.authority = 'pm';
+    //       return false;
+    //     }
+    //     if ( role === 'USER') {
+    //       this.authority = 'user';
+    //       return true;
+    //     }
+    //   });
+    // }
     this.info = {
       token: this.tokenStorage.getToken(),
       username: this.tokenStorage.getUsername(),
@@ -49,5 +50,9 @@ constructor(private tokenStorage: TokenStorageService,
   }
   update(songs: Song[]) {
     this.songList = songs;
+  }
+  logout() {
+  this.tokenStorage.signOut();
+  window.location.reload();
   }
 }
