@@ -10,5 +10,7 @@ export const environment = {
     messagingSenderId: '197467443558',
     appId: '1:197467443558:web:7cccdbe875f827eb84b8a7',
     measurementId: 'G-D375CXH5LG'
-  }
+  },
+  loginUrl: 'https://backendmp3.herokuapp.com/api/auth/signin',
+  signupUrl: 'https://backendmp3.herokuapp.com/api/auth/signup'
 };

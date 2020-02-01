@@ -7,6 +7,7 @@ import { AuthLoginInfo } from './login-info';
 import { SignUpInfo } from './signup-info';
 import {UpdateInfo} from '../model/userManager/UpdateInfo';
 import {ChangePassword} from '../model/userManager/ChangePassword';
+import {environment} from '../../environments/environment.prod';
 
 const httpOptions = {
   headers: new HttpHeaders({ 'Content-Type': 'application/json' })
@@ -19,15 +20,17 @@ const AUTHORITIES_KEY = 'AuthAuthorities';
 })
 export class AuthService {
 
-  private loginUrl = 'https://backendmp3.herokuapp.com/api/auth/signin';
-  private signupUrl = 'https://backendmp3.herokuapp.com/api/auth/signup';
-  private updateProfileUrl = 'https://backendmp3.herokuapp.com/api/auth/updateuser';
-  private changePassUrl = 'https://backendmp3.herokuapp.com/api/auth/changePassword';
+  // private loginUrl = 'https://backendmp3.herokuapp.com/api/auth/signin';
+  // private signupUrl = 'https://backendmp3.herokuapp.com/api/auth/signup';
+  // private updateProfileUrl = 'https://backendmp3.herokuapp.com/api/auth/updateuser';
+  // private changePassUrl = 'https://backendmp3.herokuapp.com/api/auth/changePassword';
+  private svLoginUrl = environment.loginUrl;
+private svSignUpUrl = environment.signupUrl;
   constructor(private http: HttpClient) {
   }
 
   attemptAuth(credentials: AuthLoginInfo): Observable<JwtResponse> {
-    return this.http.post<JwtResponse>(this.loginUrl, credentials, httpOptions);
+    return this.http.post<JwtResponse>(this.svLoginUrl, credentials, httpOptions);
   }
   loggined() {
     const token = sessionStorage.getItem(TOKEN_KEY);
@@ -39,13 +42,13 @@ export class AuthService {
     return false;
   }
   signUp(info: SignUpInfo): Observable<string> {
-    return this.http.post<string>(this.signupUrl, info, httpOptions);
+    return this.http.post<string>(this.svSignUpUrl, info, httpOptions);
   }
-  updateAuth(info: UpdateInfo): Observable<JwtResponse> {
-    return this.http.put<JwtResponse>(this.updateProfileUrl, info, httpOptions);
-  }
-
-  changePasswordAuth(info: ChangePassword): Observable<JwtResponse> {
-    return this.http.put<JwtResponse>(this.changePassUrl, info, httpOptions);
-  }
+  // updateAuth(info: UpdateInfo): Observable<JwtResponse> {
+  //   return this.http.put<JwtResponse>(this.updateProfileUrl, info, httpOptions);
+  // }
+  //
+  // changePasswordAuth(info: ChangePassword): Observable<JwtResponse> {
+  //   return this.http.put<JwtResponse>(this.changePassUrl, info, httpOptions);
+  // }
 }
