@@ -12,5 +12,7 @@ export const environment = {
     measurementId: 'G-D375CXH5LG'
   },
   loginUrl: 'https://backendmp3.herokuapp.com/api/auth/signin',
-  signupUrl: 'https://backendmp3.herokuapp.com/api/auth/signup'
+  signupUrl: 'https://backendmp3.herokuapp.com/api/auth/signup',
+  updateProfileUrl: 'https://backendmp3.herokuapp.com/api/auth/updateuser',
+  changePassUrl: 'https://backendmp3.herokuapp.com/api/auth/changePassword'
 };

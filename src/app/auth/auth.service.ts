@@ -26,6 +26,8 @@ export class AuthService {
   // private changePassUrl = 'https://backendmp3.herokuapp.com/api/auth/changePassword';
   private svLoginUrl = environment.loginUrl;
 private svSignUpUrl = environment.signupUrl;
+private svUpdateProfileUrl = environment.updateProfileUrl;
+private svChangePassUrl = environment.changePassUrl;
   constructor(private http: HttpClient) {
   }
 
@@ -44,11 +46,11 @@ private svSignUpUrl = environment.signupUrl;
   signUp(info: SignUpInfo): Observable<string> {
     return this.http.post<string>(this.svSignUpUrl, info, httpOptions);
   }
-  // updateAuth(info: UpdateInfo): Observable<JwtResponse> {
-  //   return this.http.put<JwtResponse>(this.updateProfileUrl, info, httpOptions);
-  // }
-  //
-  // changePasswordAuth(info: ChangePassword): Observable<JwtResponse> {
-  //   return this.http.put<JwtResponse>(this.changePassUrl, info, httpOptions);
-  // }
+  updateAuth(info: UpdateInfo): Observable<JwtResponse> {
+    return this.http.put<JwtResponse>(this.svUpdateProfileUrl, info, httpOptions);
+  }
+
+  changePasswordAuth(info: ChangePassword): Observable<JwtResponse> {
+    return this.http.put<JwtResponse>(this.svChangePassUrl, info, httpOptions);
+  }
 }
