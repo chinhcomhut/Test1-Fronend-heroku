@@ -19,22 +19,22 @@ constructor(private tokenStorage: TokenStorageService,
             private songService: SongService) {
 }
   ngOnInit() {
-    // if (this.tokenStorage.getToken()) {
-    //   this.roles = this.tokenStorage.getAuthorities();
-    //   this.roles.every(role => {
-    //     if (role === 'ADMIN') {
-    //       this.authority = 'admin';
-    //       return false;
-    //     } else if (role === 'PM') {
-    //       this.authority = 'pm';
-    //       return false;
-    //     }
-    //     if ( role === 'USER') {
-    //       this.authority = 'user';
-    //       return true;
-    //     }
-    //   });
-    // }
+    if (this.tokenStorage.getToken()) {
+      this.roles = this.tokenStorage.getAuthorities();
+      this.roles.every(role => {
+        if (role === 'ADMIN') {
+          this.authority = 'admin';
+          return false;
+        } else if (role === 'PM') {
+          this.authority = 'pm';
+          return false;
+        }
+        if ( role === 'USER') {
+          this.authority = 'user';
+          return true;
+        }
+      });
+    }
     this.info = {
       token: this.tokenStorage.getToken(),
       username: this.tokenStorage.getUsername(),
