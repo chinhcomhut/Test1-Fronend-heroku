@@ -89,7 +89,7 @@ export const appRoutes: Routes = [
         component: AdminComponent
     },
     {
-        path: 'auth/login',
+        path: 'login',
         component: LoginComponent
     },
     {
