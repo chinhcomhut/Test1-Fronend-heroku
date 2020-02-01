@@ -1,6 +1,6 @@
 export const environment = {
   production: true,
-  URL: 'https://backendmp3.herokuapp.com/',
+  URL: 'https://backendmp3.herokuapp.com',
   firebaseConfig: {
     apiKey: 'AIzaSyAHbXIdiO5i-nOweX-szmiNn4JSyrOjDi4',
     authDomain: 'chinhbeo-18d3b.firebaseapp.com',
@@ -14,5 +14,6 @@ export const environment = {
   loginUrl: 'https://backendmp3.herokuapp.com/api/auth/signin',
   signupUrl: 'https://backendmp3.herokuapp.com/api/auth/signup',
   updateProfileUrl: 'https://backendmp3.herokuapp.com/api/auth/updateuser',
-  changePassUrl: 'https://backendmp3.herokuapp.com/api/auth/changePassword'
+  changePassUrl: 'https://backendmp3.herokuapp.com/api/auth/changePassword',
+  singerUrl: 'https://backendmp3.herokuapp.com/api/auth/singer'
 };
