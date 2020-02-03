@@ -10,7 +10,7 @@
         <div class="col-3" *ngFor="let singers of singerList">
             <div class="card-header mb-3">
                 <div class="text-center" [routerLink]="['/detail-singer/',singers.id]">
-                    <img [src]=singers.singerAvatar alt="" class="avatar-singer">
+                    <img width="500" height="500" [src]=singers.singerAvatar alt="" class="avatar-singer">
                     <!-- Singer Avatar -->
                 </div>
                 <div class="mt-3 text-center">
