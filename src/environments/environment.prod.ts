@@ -1,6 +1,6 @@
 export const environment = {
   production: true,
-  URL: 'https://backendmp3.herokuapp.com',
+  URL: 'https://musicmp3backend.herokuapp.com',
   firebaseConfig: {
     apiKey: 'AIzaSyAHbXIdiO5i-nOweX-szmiNn4JSyrOjDi4',
     authDomain: 'chinhbeo-18d3b.firebaseapp.com',
@@ -11,9 +11,9 @@ export const environment = {
     appId: '1:197467443558:web:7cccdbe875f827eb84b8a7',
     measurementId: 'G-D375CXH5LG'
   },
-  loginUrl: 'https://backendmp3.herokuapp.com/api/auth/signin',
-  signupUrl: 'https://backendmp3.herokuapp.com/api/auth/signup',
-  updateProfileUrl: 'https://backendmp3.herokuapp.com/api/auth/updateuser',
-  changePassUrl: 'https://backendmp3.herokuapp.com/api/auth/changePassword',
-  singerUrl: 'https://backendmp3.herokuapp.com/api/auth/singer'
+  loginUrl: 'https://musicmp3backend.herokuapp.com/api/auth/signin',
+  signupUrl: 'https://musicmp3backend.herokuapp.com/api/auth/signup',
+  updateProfileUrl: 'https://musicmp3backend.herokuapp.com/api/auth/updateuser',
+  changePassUrl: 'https://musicmp3backend.herokuapp.com/api/auth/changePassword',
+  singerUrl: 'https://musicmp3backend.herokuapp.com/api/singer'
 };
