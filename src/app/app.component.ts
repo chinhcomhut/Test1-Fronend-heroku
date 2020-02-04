@@ -22,14 +22,14 @@ constructor(private tokenStorage: TokenStorageService,
     if (this.tokenStorage.getToken()) {
       this.roles = this.tokenStorage.getAuthorities();
       this.roles.every(role => {
-        if (role === 'ADMIN') {
+        if (role === 'ROLE_ADMIN') {
           this.authority = 'admin';
           return false;
         } else if (role === 'PM') {
           this.authority = 'pm';
           return false;
         }
-        if ( role === 'USER') {
+        if ( role === 'ROLE_USER') {
           this.authority = 'user';
           return true;
         }
