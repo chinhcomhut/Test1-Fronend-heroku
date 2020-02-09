@@ -6,7 +6,7 @@ import {SignUpInfo} from '../../auth/signup-info';
 export class SingerInfo {
     id: number;
     nameSinger: string;
-    singerAvatar?: string;
+    avatarSinger?: string;
     information: string;
     users: SignUpInfo;
     songs: Song[];

@@ -21,14 +21,14 @@ export class CreateSingerComponent implements OnInit {
       private singerManagerService: SingerManagerService) {
     this.singerForm = new FormGroup({
       nameSinger: new FormControl(''),
-      singerAvatar: new FormControl(''),
+      avatarSinger: new FormControl(''),
       singerBirthday: new FormControl(''),
       singerNation: new FormControl(''),
       description: new FormControl(''),
     });
     this.singer = {
       nameSinger: '',
-      singerAvatar: '',
+      avatarSinger: '',
       information: '',
       songs: []
     };
@@ -38,7 +38,7 @@ export class CreateSingerComponent implements OnInit {
   }
 
   onAvatar($event) {
-    this.singer.singerAvatar = $event;
+    this.singer.avatarSinger = $event;
   }
 
   createSinger() {
