@@ -151,9 +151,13 @@
                     <div [routerLink]="['/detail-singer/',singer.id]"
                          class="rounded mb-4 play portfolio-effect__item portfolio-item--eff1"
                          style="width: 150px;height: 150px">
-                        <img class="img-fluid portfolio-item__image"
-                             src="{{singer.avatarSinger}}"
-                             alt="{{singer.nameSinger}}">
+                        <img width="150px" height="150px" [src]=singer.avatarSinger alt="" class="avatar-singer">
+
+
+
+<!--                        <img class="img-fluid portfolio-item__image"-->
+<!--                             src="{{singer.avatarSinger}}"-->
+<!--                             alt="{{singer.nameSinger}}">-->
 <!--                        <div class="portfolio-item__info">-->
 <!--                            <i class="fas fa-play-circle fa-3x"></i>-->
 <!--                        </div>-->

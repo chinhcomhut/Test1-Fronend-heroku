@@ -9,11 +9,11 @@ import {environment} from '../../../environments/environment.prod';
   providedIn: 'root'
 })
 export class SongService {
-private readonly API_URL_CREATE = environment.URL + '/api/song';
-  private readonly API_URL_GET = environment.URL + '/api/song';
-  private readonly API_URL_GET_ID = environment.URL + '/api/song';
-  private readonly API_URL_PUT = environment.URL + '/api/song';
-  private readonly API_URL_DELETE = environment.URL + '/api/song';
+private readonly API_URL_CREATE = environment.URL + '/api/auth/song';
+  private readonly API_URL_GET = environment.URL + '/api/auth/song';
+  private readonly API_URL_GET_ID = environment.URL + '/api/auth/song';
+  private readonly API_URL_PUT = environment.URL + '/api/auth/song';
+  private readonly API_URL_DELETE = environment.URL + '/api/auth/song';
   private likedSongByIdUrl = 'https://musicfullbackend.herokuapp.com/api/auth/songs/like';
   private likeSongUrl = 'https://musicfullbackend.herokuapp.com/api/songs/toplike';
   private listSongUserId = 'https://musicfullbackend.herokuapp.com/api/auth/listSongByUser';
