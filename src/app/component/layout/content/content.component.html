@@ -150,14 +150,29 @@
                 <div class="col-2" *ngFor="let singer of listSingers">
                     <div [routerLink]="['/detail-singer/',singer.id]"
                          style="width: 150px;height: 150px">
-<table>
-    <tr>
-        <img width="150px" height="150px" [src]=singer.avatarSinger alt="" class="avatar"[routerLink]="['/detail-singer',singer.id]">
-        <h4 [routerLink]="['/detail-singer',singer.id]">
-            {{singer.nameSinger}}</h4>
-    </tr>
-</table>
-
+<!--<table>-->
+<!--    <tr>-->
+<!--        <img width="150px" height="150px" [src]=singer.avatarSinger alt="" class="avatar"[routerLink]="['/detail-singer',singer.id]">-->
+<!--        <h4 [routerLink]="['/detail-singer',singer.id]">-->
+<!--            {{singer.nameSinger}}</h4>-->
+<!--    </tr>-->
+<!--</table>-->
+                        <mat-card class="example-card">
+                            <mat-card-header>
+                                <div mat-card-avatar class="example-header-image"></div>
+                                <mat-card-title>{{singer.nameSinger}}</mat-card-title>
+                            </mat-card-header>
+                            <img mat-card-image [src]="singer.avatarSinger" alt="">
+                            <mat-card-content>
+                                <p>
+                                   {{singer.nameSinger}}
+                                </p>
+                            </mat-card-content>
+                            <mat-card-actions>
+                                <button mat-button>LIKE</button>
+                                <button mat-button>SHARE</button>
+                            </mat-card-actions>
+                        </mat-card>
 
 
 
