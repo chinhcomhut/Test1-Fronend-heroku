@@ -8,11 +8,11 @@ import {UpdateInfo} from '../model/userManager/UpdateInfo';
 })
 export class UserService {
 
-  private userUrl = 'http://localhost:8080/api/test/user';
-  private pmUrl = 'http://localhost:8080/api/test/pm';
-  private adminUrl = 'http://localhost:8080/api/test/admin';
-  private updateUserUrl = 'http://localhost:8080/api/auth/updateuser';
-  private getUserUrl = 'http://localhost:8080/api/auth/user';
+  private userUrl = 'https://musicfullbackend.herokuapp.com/api/test/user';
+  private pmUrl = 'https://musicfullbackend.herokuapp.com/api/test/pm';
+  private adminUrl = 'https://musicfullbackend.herokuapp.com/api/test/admin';
+  private updateUserUrl = 'https://musicfullbackend.herokuapp.com/api/auth/updateuser';
+  private getUserUrl = 'https://musicfullbackend.herokuapp.com/api/auth/user';
   constructor(private http: HttpClient) { }
 
   getUserBoard(): Observable<string> {
