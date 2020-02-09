@@ -149,9 +149,11 @@
 
                 <div class="col-2" *ngFor="let singer of listSingers">
                     <div [routerLink]="['/detail-singer/',singer.id]"
-                         class="rounded mb-4 play portfolio-effect__item portfolio-item--eff1"
                          style="width: 150px;height: 150px">
-                        <img width="150px" height="150px" [src]=singer.avatarSinger alt="" class="avatar-singer">
+
+                        <img width="150px" height="150px" [src]=singer.avatarSinger alt="" class="avatar"[routerLink]="['/detail-singer',singer.id]">
+                        <h4 [routerLink]="['/detail-singer',singer.id]" class="font-weight-bold mb-3" style="font-size: 80%">
+                            <h4>{{singer.nameSinger}}</h4></h4>
 
 
 
@@ -162,9 +164,7 @@
 <!--                            <i class="fas fa-play-circle fa-3x"></i>-->
 <!--                        </div>-->
                     </div>
-                    <img width="400px" height="400px" [src]=singer.avatarSinger alt="" class="avatar">
-                    <h4 [routerLink]="['/detail-singer',singer.id]" class="font-weight-bold mb-3" style="font-size: 80%">
-                        <strong>{{singer.nameSinger}}</strong></h4>
+
                     <!--          <p style="font-size: 70%">Ca sĩ - <a class="font-weight-bold">{{singer.nameSinger}}</a></p>-->
                     <!--          <p style="font-size: 70%">Thể loại - <a class="font-weight-bold">{{singer.nameSinger}}</a></p>-->
                 </div>
