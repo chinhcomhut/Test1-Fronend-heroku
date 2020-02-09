@@ -22,7 +22,7 @@ export class UpdatesingerComponent implements OnInit {
       private singerManagerService: SingerManagerService) {
     this.singerForm = new FormGroup({
       nameSinger: new FormControl(''),
-      singerAvatar: new FormControl(''),
+      avatarSinger: new FormControl(''),
       description: new FormControl(''),
     });
   }
@@ -42,7 +42,7 @@ export class UpdatesingerComponent implements OnInit {
   }
 
   onAvatar($event) {
-    this.singer.singerAvatar = $event;
+    this.singer.avatarSinger = $event;
   }
 
   createSinger() {
