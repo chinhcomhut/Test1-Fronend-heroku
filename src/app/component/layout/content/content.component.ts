@@ -32,21 +32,22 @@ export class ContentComponent implements OnInit {
     listSingers: SingerInfo[] = [];
     playlist: PlaylistInfor[] = [];
 
-    msbapTitle = 'Chợt Nhớ';
+    // msbapTitle = 'Chợt Nhớ';
+    // // tslint:disable-next-line:max-line-length
     // tslint:disable-next-line:max-line-length
-    msbapAudioUrl = `https://firebasestorage.googleapis.com/v0/b/chinhbeo-18d3b.appspot.com/o/24fixz1g6o7h?alt=media&token=89ebc483-9e50-4713-810c-6d19ca8f0118`;
-
-    msbapDisplayTitle = false;
-    msbapDisplayVolumeControls = true;
-
-
-
-
-    msaapDisplayTitle = true;
-    msaapDisplayPlayList = true;
-    pageSizeOptions = [2, 4, 6];
-
-    msaapDisplayVolumeControls = true;
+    // msbapAudioUrl = `https://firebasestorage.googleapis.com/v0/b/chinhbeo-18d3b.appspot.com/o/24fixz1g6o7h?alt=media&token=89ebc483-9e50-4713-810c-6d19ca8f0118`;
+    //
+    // msbapDisplayTitle = false;
+    // msbapDisplayVolumeControls = true;
+    //
+    //
+    //
+    //
+    // msaapDisplayTitle = true;
+    // msaapDisplayPlayList = true;
+    // pageSizeOptions = [2, 4, 6];
+    //
+    // msaapDisplayVolumeControls = true;
 
     ngOnInit() {
         this.info = {
@@ -106,26 +107,26 @@ export class ContentComponent implements OnInit {
         this.songList = songs;
     }
 
-
-    changeMsbapDisplayTitle(event) {
-        this.msbapDisplayTitle = event.checked;
-    }
-
-    changeMsbapDisplayVolumeControls(event) {
-        this.msbapDisplayVolumeControls = event.checked;
-    }
-
-    changeMsaapDisplayTitle(event) {
-        this.msaapDisplayTitle = event.checked;
-    }
-
-    changeMsaapDisplayPlayList(event) {
-        this.msaapDisplayPlayList = event.checked;
-    }
-
-    changeMsaapDisplayVolumeControls(event) {
-        this.msaapDisplayVolumeControls = event.checked;
-    }
+    //
+    // changeMsbapDisplayTitle(event) {
+    //     this.msbapDisplayTitle = event.checked;
+    // }
+    //
+    // changeMsbapDisplayVolumeControls(event) {
+    //     this.msbapDisplayVolumeControls = event.checked;
+    // }
+    //
+    // changeMsaapDisplayTitle(event) {
+    //     this.msaapDisplayTitle = event.checked;
+    // }
+    //
+    // changeMsaapDisplayPlayList(event) {
+    //     this.msaapDisplayPlayList = event.checked;
+    // }
+    //
+    // changeMsaapDisplayVolumeControls(event) {
+    //     this.msaapDisplayVolumeControls = event.checked;
+    // }
 
 
     // this.info = {
