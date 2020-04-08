@@ -15,5 +15,6 @@ export const environment = {
   signupUrl: 'https://musicfullbackend.herokuapp.com/api/auth/signup',
   updateProfileUrl: 'https://musicfullbackend.herokuapp.com/api/auth/updateuser',
   changePassUrl: 'https://musicfullbackend.herokuapp.com/api/auth/changePassword',
-  singerUrl: 'https://musicfullbackend.herokuapp.com/api/auth/singer'
+  singerUrl: 'https://musicfullbackend.herokuapp.com/api/auth/singer',
+  singerByUser: 'https://musicfullbackend.herokuapp.com/api/auth/listSingerByUser'
 };
