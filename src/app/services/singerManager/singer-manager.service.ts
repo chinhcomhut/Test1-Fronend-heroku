@@ -15,7 +15,8 @@ export class SingerManagerService {
   // private readonly API_PUT_SINGER = environment.URL + '/api/singer/';
   // private readonly API_DELETE_SINGER = environment.URL + '/api/singers/delete';
   // private readonly API_GET_SINGER_BY_USER = environment.URL + '/api/auth/listSingerByUser';
-  private svSingerUrl = environment.singerByUser;
+  private svSingerUrl = environment.singerUrl;
+  private LSingerByUserId = environment.singerByUser;
 
   constructor(
       private http: HttpClient) {
@@ -42,6 +43,6 @@ export class SingerManagerService {
   }
 
   getAllSingerUserId(): Observable<any> {
-    return this.http.get<any>(this.svSingerUrl);
+    return this.http.get<any>(this.LSingerByUserId);
   }
 }
