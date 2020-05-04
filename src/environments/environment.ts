@@ -4,7 +4,7 @@
 
 export const environment = {
   production: false,
-  URL: 'https://musicfullbackend.herokuapp.com',
+  URL: 'https://ndc-music.herokuapp.com/',
   firebaseConfig: {
     apiKey: 'AIzaSyAHbXIdiO5i-nOweX-szmiNn4JSyrOjDi4',
     authDomain: 'chinhbeo-18d3b.firebaseapp.com',

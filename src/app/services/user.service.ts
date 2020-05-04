@@ -8,11 +8,11 @@ import {UpdateInfo} from '../model/userManager/UpdateInfo';
 })
 export class UserService {
 
-  private userUrl = 'https://musicfullbackend.herokuapp.com/api/test/user';
-  private pmUrl = 'https://musicfullbackend.herokuapp.com/api/test/pm';
-  private adminUrl = 'https://musicfullbackend.herokuapp.com/api/test/admin';
-  private updateUserUrl = 'https://musicfullbackend.herokuapp.com/api/auth/updateuser';
-  private getUserUrl = 'https://musicfullbackend.herokuapp.com/api/auth/user';
+  private userUrl = 'https://ndc-music.herokuapp.com/api/test/user';
+  private pmUrl = 'https://ndc-music.herokuapp.com/api/test/pm';
+  private adminUrl = 'https://ndc-music.herokuapp.com/api/test/admin';
+  private updateUserUrl = 'https://ndc-music.herokuapp.com/api/auth/updateuser';
+  private getUserUrl = 'https://ndc-music.herokuapp.com/api/auth/user';
   constructor(private http: HttpClient) { }
 
   getUserBoard(): Observable<string> {

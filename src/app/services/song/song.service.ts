@@ -14,11 +14,11 @@ private readonly API_URL_CREATE = environment.URL + '/api/auth/song';
   private readonly API_URL_GET_ID = environment.URL + '/api/auth/song';
   private readonly API_URL_PUT = environment.URL + '/api/auth/song';
   private readonly API_URL_DELETE = environment.URL + '/api/auth/song';
-  private likedSongByIdUrl = 'https://musicfullbackend.herokuapp.com/api/auth/songs/like';
-  private likeSongUrl = 'https://musicfullbackend.herokuapp.com/api/songs/toplike';
-  private listSongUserId = 'https://musicfullbackend.herokuapp.com/api/auth/listSongByUser';
-  private listenSong = 'https://musicfullbackend.herokuapp.com/api/songs/toplisten';
-  private searchSong = 'https://musicfullbackend.herokuapp.com/api/songs/search';
+  private likedSongByIdUrl = 'https://ndc-music.herokuapp.com/api/auth/songs/like';
+  private likeSongUrl = 'https://ndc-music.herokuapp.com/api/songs/toplike';
+  private listSongUserId = 'https://ndc-music.herokuapp.com/api/auth/listSongByUser';
+  private listenSong = 'https://ndc-music.herokuapp.com/api/songs/toplisten';
+  private searchSong = 'https://ndc-music.herokuapp.com/api/songs/search';
 
   constructor(private http: HttpClient, private authenService: AuthService) { }
   getSong(): Observable<any> {
