@@ -144,13 +144,33 @@
                     Ca Sĩ
                 </h3>
             </div>
-<div class="container-fluid">
+
     <div class="row">
 
         <div class="col-2" *ngFor="let singer of listSingers">
                                 <div [routerLink]="['/detail-singer/',singer.id]"
                                      class="rounded mb-4 play portfolio-effect__item portfolio-item--eff1"
                                      style="width: 150px;height: 150px">
+
+                                    <!--------------- CARD ------------>
+                                    <mat-card class="example-card">
+                                        <mat-card-header>
+                                            <div mat-card-avatar class="example-header-image"></div>
+                                            <mat-card-title>Shiba Inu</mat-card-title>
+                                            <mat-card-subtitle>Dog Breed</mat-card-subtitle>
+                                        </mat-card-header>
+                                        <img mat-card-image src="{{singer.avatarSinger}}" alt="{{singer.nameSinger}}">
+                                        <mat-card-content>
+                                            <p>
+                                                {{singer.information}}
+                                            </p>
+                                        </mat-card-content>
+                                        <mat-card-actions>
+                                            <button mat-button>LIKE</button>
+                                            <button mat-button>SHARE</button>
+                                        </mat-card-actions>
+                                    </mat-card>
+                                    <!--------------- CARD ------------>
 
 <!--            <table>-->
 <!--                <tr>-->
@@ -169,20 +189,21 @@
 
 
 
-                                    <img class="img-fluid portfolio-item__image"
-                                         src="{{singer.avatarSinger}}"
-                                         alt="{{singer.nameSinger}}">
-                                    <div class="portfolio-item__info">
-                                        <i class="fas fa-play-circle fa-3x"></i>
-                                    </div>
+<!--                                    <img class="img-fluid portfolio-item__image"-->
+<!--                                         src="{{singer.avatarSinger}}"-->
+<!--                                         alt="{{singer.nameSinger}}">-->
+<!--                                    <div class="portfolio-item__info">-->
+<!--                                        <i class="fas fa-play-circle fa-3x"></i>-->
+<!--                                    </div>-->
                                 </div>
 
             <!--          <p style="font-size: 70%">Ca sĩ - <a class="font-weight-bold">{{singer.nameSinger}}</a></p>-->
             <!--          <p style="font-size: 70%">Thể loại - <a class="font-weight-bold">{{singer.nameSinger}}</a></p>-->
         </div>
 
+
     </div>
-</div>
+
 
             <br><br><br><br><br><br>
             <hr>
