@@ -7,6 +7,7 @@ import {TokenStorageService} from '../../../auth/token-storage.service';
 import {SingerInfo} from '../../../model/singer/singer-info';
 import {SingerManagerService} from '../../../services/singerManager/singer-manager.service';
 
+
 @Component({
   selector: 'app-create-song',
   templateUrl: './create-song.component.html',
@@ -15,11 +16,11 @@ import {SingerManagerService} from '../../../services/singerManager/singer-manag
 export class CreateSongComponent implements OnInit {
 
   title = 'Thêm Bài Hát Mới';
-
+ info: any;
   songForm: FormGroup;
   song: Partial<Song>;
   avatarUrl: string;
-  singer: SingerInfo[] = [];
+  public singerList: SingerInfo[] = [];
   constructor(private router: Router,
               private service: SongService,
               private tokenService: TokenStorageService,
@@ -34,17 +35,29 @@ export class CreateSongComponent implements OnInit {
       mp3Url: new FormControl(''),
       describes: new FormControl('')
     });
-    this.song = {
-      avatarUrl: '',
-      nameSong: '',
-      category: '',
-      singer: '',
-      lyrics: '',
-      mp3Url: '',
-      describes: '',
-    };
+    // this.song = {
+    //   avatarUrl: '',
+    //   nameSong: '',
+    //   category: '',
+    //   singer:
+    //   lyrics: '',
+    //   mp3Url: '',
+    //   describes: '',
+    // };
   }
   ngOnInit() {
+    this.singerService.getSinger().subscribe(
+      result => {
+        this.singerList = result;
+      }, error => {
+        alert('error get listSinger');
+      }
+    );
+    this.info = {
+      name: this.tokenService.getUsername(),
+      token: this.tokenService.getToken(),
+      username: this.tokenService.getUsername()
+    };
   }
 
   onChange($event) {
@@ -65,13 +78,7 @@ export class CreateSongComponent implements OnInit {
               alert('Bạn chưa thêm thành công');
         }
     );
-    this.singerService.getSinger().subscribe(
-      result => {
-        this.singer = result;
-      }, error => {
-        alert('error get listSinger');
-      }
-    );
+
   }
 
   getAvatarUrl(avatarUrl: string) {

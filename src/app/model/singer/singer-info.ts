@@ -8,6 +8,6 @@ export class SingerInfo {
     nameSinger: string;
     avatarSinger: string;
     information: string;
-    users: SignUpInfo;
-    songs: Song[];
+    // users: SignUpInfo;
+    // songs: Song[];
 }

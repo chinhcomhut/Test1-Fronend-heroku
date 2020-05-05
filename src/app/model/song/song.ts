@@ -1,8 +1,10 @@
+import {SingerInfo} from '../singer/singer-info';
+
 export class Song {
     id?: number;
     avatarUrl?: string;
     nameSong?: string;
-    singer?: string;
+    singer?: SingerInfo;
     mp3Url?: string;
     describes?: string;
     category?: string;
@@ -17,7 +19,7 @@ export class Song {
         id: number,
         avatarUrl: string,
         nameSong: string,
-        singer: string,
+        singer: SingerInfo,
         mp3Url: string,
         describes: string,
         category: string,
