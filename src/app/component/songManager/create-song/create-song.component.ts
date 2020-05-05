@@ -19,7 +19,7 @@ export class CreateSongComponent implements OnInit {
   songForm: FormGroup;
   song: Partial<Song>;
   avatarUrl: string;
-  singerList: SingerInfo[] = [];
+  singer: SingerInfo[] = [];
   constructor(private router: Router,
               private service: SongService,
               private tokenService: TokenStorageService,
@@ -45,13 +45,6 @@ export class CreateSongComponent implements OnInit {
     };
   }
   ngOnInit() {
-    this.singerService.getSinger().subscribe(
-      result => {
-        this.singerList = result;
-      }, error => {
-        alert('error get listSinger');
-      }
-    );
   }
 
   onChange($event) {
@@ -71,6 +64,13 @@ export class CreateSongComponent implements OnInit {
           console.log(error),
               alert('Bạn chưa thêm thành công');
         }
+    );
+    this.singerService.getSinger().subscribe(
+      result => {
+        this.singer = result;
+      }, error => {
+        alert('error get listSinger');
+      }
     );
   }
 
