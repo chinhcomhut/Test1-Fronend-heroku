@@ -4,7 +4,7 @@ import {Song} from '../song/song';
 import {SignUpInfo} from '../../auth/signup-info';
 
 export class SingerInfo {
-    id?: string;
+    id?: number;
     nameSinger: string;
     avatarSinger: string;
     information: string;
