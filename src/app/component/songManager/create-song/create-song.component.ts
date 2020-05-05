@@ -6,6 +6,8 @@ import {SongService} from '../../../services/song/song.service';
 import {TokenStorageService} from '../../../auth/token-storage.service';
 import {SingerInfo} from '../../../model/singer/singer-info';
 import {SingerManagerService} from '../../../services/singerManager/singer-manager.service';
+// @ts-ignore
+import any = jasmine.any;
 
 
 @Component({
@@ -41,7 +43,7 @@ export class CreateSongComponent implements OnInit {
       nameSong: '',
       category: '',
       lyrics: '',
-      singer: this.info,
+      singer: any,
       mp3Url: '',
       describes: ''
     };
@@ -72,6 +74,13 @@ onAvatar($event) {
 
 createSong() {
     console.log(this.song);
+    this.singerService.getSinger().subscribe(
+    result => {
+      this.singerList = result;
+    }, error => {
+      alert('error get listSinger');
+    }
+  );
     this.service.createSong(this.song).subscribe(() => {
           alert('Bạn đã thêm thành công Bài Hát');
           this.router.navigate(['/']);
