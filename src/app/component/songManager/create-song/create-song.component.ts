@@ -43,9 +43,9 @@ export class CreateSongComponent implements OnInit {
       nameSong: '',
       category: '',
       lyrics: '',
-      singer: this.info.singer,
+      singerId: '',
       mp3Url: '',
-      describes: ''
+      describes: '',
     };
   }
 ngOnInit() {
@@ -74,7 +74,13 @@ onAvatar($event) {
 
 createSong() {
     console.log(this.song);
-
+    this.singerService.getSinger().subscribe(
+    result => {
+      this.singerList = result;
+    }, error => {
+      alert('error get listSinger');
+    }
+  );
     this.service.createSong(this.song).subscribe(() => {
           alert('Bạn đã thêm thành công Bài Hát');
           this.router.navigate(['/']);
