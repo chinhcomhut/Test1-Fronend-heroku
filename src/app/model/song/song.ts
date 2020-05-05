@@ -9,6 +9,7 @@ export class Song {
     nameSong?: string;
     singer?: {
         id: string;
+        nameSinger: string;
     };
     mp3Url?: string;
     describes?: string;

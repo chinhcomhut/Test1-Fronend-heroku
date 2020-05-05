@@ -52,21 +52,21 @@ export class SearchComponent implements OnInit {
         this.press.emit(this.filteredSong);
       }
     }
-    if (this.searchBy === 'singer') {
-      if (this.searchForm.valid) {
-        const form = this.searchForm.value;
-        const isEmptyForm = !form.key;
-        this.filteredSong = this.songs;
-        if (!isEmptyForm) {
-          if (form.key) {
-            this.filteredSong = this.filteredSong.filter((song => song.singer.includes(form.key)));
-          }
-        } else {
-          this.filteredSong = this.songs;
-        }
-        this.press.emit(this.filteredSong);
-      }
-    }
+    // if (this.searchBy === 'singer') {
+    //   if (this.searchForm.valid) {
+    //     const form = this.searchForm.value;
+    //     const isEmptyForm = !form.key;
+    //     this.filteredSong = this.songs;
+    //     if (!isEmptyForm) {
+    //       if (form.key) {
+    //         this.filteredSong = this.filteredSong.filter((song => song.singer.includes(form.key)));
+    //       }
+    //     } else {
+    //       this.filteredSong = this.songs;
+    //     }
+    //     this.press.emit(this.filteredSong);
+    //   }
+    // }
   }
 
   unFilter() {
