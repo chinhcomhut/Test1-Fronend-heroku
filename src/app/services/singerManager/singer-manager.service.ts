@@ -22,8 +22,8 @@ export class SingerManagerService {
       private http: HttpClient) {
   }
 
-  getSinger(): Observable<any> {
-    return this.http.get<any>(this.svSingerUrl);
+  getSinger(): Observable<SingerInfo[]> {
+    return this.http.get<SingerInfo[]>(this.svSingerUrl);
   }
 
   getSingerById(id: number): Observable<SingerInfo> {

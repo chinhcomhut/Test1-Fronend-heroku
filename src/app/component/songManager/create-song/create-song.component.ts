@@ -1,9 +1,11 @@
 import {Component, EventEmitter, Input, OnInit, Output} from '@angular/core';
 import {FormControl, FormGroup} from '@angular/forms';
 import {Song} from '../../../model/song/song';
-import {Router} from '@angular/router';
+import {ActivatedRoute, Router} from '@angular/router';
 import {SongService} from '../../../services/song/song.service';
 import {TokenStorageService} from '../../../auth/token-storage.service';
+import {SingerInfo} from '../../../model/singer/singer-info';
+import {SingerManagerService} from '../../../services/singerManager/singer-manager.service';
 
 @Component({
   selector: 'app-create-song',
@@ -17,10 +19,12 @@ export class CreateSongComponent implements OnInit {
   songForm: FormGroup;
   song: Partial<Song>;
   avatarUrl: string;
-
+  singerList: SingerInfo[] = [];
   constructor(private router: Router,
               private service: SongService,
-              private tokenService: TokenStorageService) {
+              private tokenService: TokenStorageService,
+              private singerService: SingerManagerService,
+              private route: ActivatedRoute) {
     this.songForm = new FormGroup({
       avatarUrl: new FormControl(''),
       category: new FormControl(''),
@@ -40,8 +44,14 @@ export class CreateSongComponent implements OnInit {
       describes: '',
     };
   }
-
   ngOnInit() {
+    this.singerService.getSinger().subscribe(
+      result => {
+        this.singerList = result;
+      }, error => {
+        alert('error get listSinger');
+      }
+    );
   }
 
   onChange($event) {
@@ -68,5 +78,6 @@ export class CreateSongComponent implements OnInit {
     this.avatarUrl = avatarUrl;
     console.log(avatarUrl);
   }
+
 
 }
