@@ -35,15 +35,16 @@ export class CreateSongComponent implements OnInit {
       mp3Url: new FormControl(''),
       describes: new FormControl('')
     });
-    // this.song = {
-    //   avatarUrl: '',
-    //   nameSong: '',
-    //   category: '',
-    //   singer:
-    //   lyrics: '',
-    //   mp3Url: '',
-    //   describes: '',
-    // };
+    // @ts-ignore
+    this.song = {
+      avatarUrl: '',
+      nameSong: '',
+      category: '',
+      lyrics: '',
+      singer: '',
+      mp3Url: '',
+      describes: '',
+    };
   }
   ngOnInit() {
     this.singerService.getSinger().subscribe(
