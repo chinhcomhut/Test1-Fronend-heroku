@@ -43,7 +43,6 @@ export class CreateSongComponent implements OnInit {
       nameSong: '',
       category: '',
       lyrics: '',
-      singer: this.info.singer,
       mp3Url: '',
       describes: '',
     };
