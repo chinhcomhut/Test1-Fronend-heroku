@@ -4,10 +4,10 @@ import {Song} from '../song/song';
 import {SignUpInfo} from '../../auth/signup-info';
 
 export class SingerInfo {
-    id: number;
+    id?: string;
     nameSinger: string;
     avatarSinger: string;
     information: string;
     // users: SignUpInfo;
-    // songs: Song[];
+    songs: Song[];
 }

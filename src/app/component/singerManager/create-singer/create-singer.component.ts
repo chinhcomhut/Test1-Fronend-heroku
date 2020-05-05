@@ -31,7 +31,7 @@ export class CreateSingerComponent implements OnInit {
       nameSinger: '',
       avatarSinger: '',
       information: '',
-      // songs: []
+      songs: []
     };
   }
 
