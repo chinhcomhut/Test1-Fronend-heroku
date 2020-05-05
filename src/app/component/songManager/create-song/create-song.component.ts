@@ -31,6 +31,7 @@ export class CreateSongComponent implements OnInit {
       category: new FormControl(''),
       nameSong: new FormControl(''),
       lyrics: new FormControl(''),
+      singer: new FormControl(''),
       mp3Url: new FormControl(''),
       describes: new FormControl('')
     });
@@ -40,11 +41,12 @@ export class CreateSongComponent implements OnInit {
       nameSong: '',
       category: '',
       lyrics: '',
+      singer: this.info,
       mp3Url: '',
-      describes: '',
+      describes: ''
     };
   }
-  ngOnInit() {
+ngOnInit() {
     this.singerService.getSinger().subscribe(
       result => {
         this.singerList = result;
@@ -53,21 +55,22 @@ export class CreateSongComponent implements OnInit {
       }
     );
     this.info = {
+      singer: this.singerService.getSinger(),
       name: this.tokenService.getUsername(),
       token: this.tokenService.getToken(),
       username: this.tokenService.getUsername()
     };
   }
 
-  onChange($event) {
+onChange($event) {
     this.song.mp3Url = $event;
   }
 
-  onAvatar($event) {
+onAvatar($event) {
     this.song.avatarUrl = $event;
   }
 
-  createSong() {
+createSong() {
     console.log(this.song);
     this.service.createSong(this.song).subscribe(() => {
           alert('Bạn đã thêm thành công Bài Hát');
@@ -80,7 +83,7 @@ export class CreateSongComponent implements OnInit {
 
   }
 
-  getAvatarUrl(avatarUrl: string) {
+getAvatarUrl(avatarUrl: string) {
     this.avatarUrl = avatarUrl;
     console.log(avatarUrl);
   }
