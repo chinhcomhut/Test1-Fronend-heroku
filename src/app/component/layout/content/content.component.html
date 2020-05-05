@@ -148,12 +148,19 @@
 
 
                                     <!--------------- CARD ------------>
-                                    <mat-card class="example-card" class="col-4" *ngFor="let singer of listSingers" [routerLink]="['/detail-singer/',singer.id]">
-                                        <mat-card-header>
-                                            <div mat-card-avatar class="example-header-image"></div>
-                                        </mat-card-header>
-                                        <img mat-card-image src="{{singer.avatarSinger}}" alt="{{singer.nameSinger}}" width="150px" height="150px">
-                                    </mat-card>
+            <div class = "container">
+                <div class = "row">
+                    <div class = "col-sm-4">
+                        <mat-card class="example-card" *ngFor="let singer of listSingers" [routerLink]="['/detail-singer/',singer.id]">
+                            <mat-card-header>
+                                <div mat-card-avatar class="example-header-image"></div>
+                            </mat-card-header>
+                            <img mat-card-image src="{{singer.avatarSinger}}" alt="{{singer.nameSinger}}" width="100px" height="150px">
+                        </mat-card>
+                    </div>
+                </div>
+            </div>
+
                                     <!--------------- CARD ------------>
             <br><br><br><br><br><br>
             <hr>
