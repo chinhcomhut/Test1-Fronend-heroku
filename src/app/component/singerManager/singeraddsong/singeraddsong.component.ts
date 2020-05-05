@@ -1,9 +1,9 @@
 import { Component, OnInit } from '@angular/core';
-import {Song} from "../../../model/song/song";
-import {SingerInfo} from "../../../model/singer/singer-info";
-import {SongService} from "../../../services/song/song.service";
-import {SingerManagerService} from "../../../services/singerManager/singer-manager.service";
-import {ActivatedRoute, Router} from "@angular/router";
+import {Song} from '../../../model/song/song';
+import {SingerInfo} from '../../../model/singer/singer-info';
+import {SongService} from '../../../services/song/song.service';
+import {SingerManagerService} from '../../../services/singerManager/singer-manager.service';
+import {ActivatedRoute, Router} from '@angular/router';
 
 @Component({
   selector: 'app-singeraddsong',
@@ -49,12 +49,12 @@ export class SingeraddsongComponent implements OnInit {
     this.songList = songs;
   }
 
-  addSongtoPlayList(song: Song) {
-    this.singer.songs.push(song);
-    const url = '/detail-singer/' + this.id;
-    this.singerManagerService.updateSinger(this.singer).subscribe(next => {
-      this.router.navigate([url]);
-    });
-  }
+  // addSongtoPlayList(song: Song) {
+  //   this.singer.songs.push(song);
+  //   const url = '/detail-singer/' + this.id;
+  //   this.singerManagerService.updateSinger(this.singer).subscribe(next => {
+  //     this.router.navigate([url]);
+  //   });
+  // }
 
 }
