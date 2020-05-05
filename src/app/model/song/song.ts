@@ -7,7 +7,7 @@ export class Song {
     id?: number;
     avatarUrl?: string;
     nameSong?: string;
-    singerId?: string;
+    singer?: SingerInfo;
     mp3Url?: string;
     describes?: string;
     category?: string;
@@ -21,7 +21,7 @@ export class Song {
         id: number,
         avatarUrl: string,
         nameSong: string,
-        singerId: string,
+        singer: SingerInfo,
         mp3Url: string,
         describes: string,
         category: string,
@@ -32,7 +32,7 @@ export class Song {
         this.id = id;
         this.avatarUrl = avatarUrl;
         this.nameSong = nameSong;
-        this.singerId = singerId;
+        this.singer = singer;
         this.mp3Url = mp3Url;
         this.describes = describes;
         this.category = category;

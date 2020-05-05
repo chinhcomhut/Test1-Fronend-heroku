@@ -43,19 +43,19 @@ export class CreateSongComponent implements OnInit {
       nameSong: '',
       category: '',
       lyrics: '',
-      singerId: '',
+      singer: this.info.singer,
       mp3Url: '',
       describes: '',
     };
   }
 ngOnInit() {
-  this.singerService.getSinger().subscribe(
-    result => {
-      this.singerList = result;
-    }, error => {
-      alert('error get listSinger');
-    }
-  );
+  // this.singerService.getSinger().subscribe(
+  //   result => {
+  //     this.singerList = result;
+  //   }, error => {
+  //     alert('error get listSinger');
+  //   }
+  // );
   this.info = {
       singer: this.singerService.getSinger(),
       name: this.tokenService.getUsername(),
