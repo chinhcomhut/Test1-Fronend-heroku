@@ -42,7 +42,7 @@ private readonly API_URL_SONG = environment.URL + 'api/auth/song';
   // getLikeSongById(id: number): Observable<Song> {
   //   return this.http.get<Song>(`${this.likedSongByIdUrl}/${id}`);
   // }
-  //
+
   // getLikeSong(): Observable<Song[]> {
   //   return this.http.get<Song[]>(this.likeSongUrl);
   // }
@@ -50,11 +50,11 @@ private readonly API_URL_SONG = environment.URL + 'api/auth/song';
   // getListenSong(): Observable<Song[]> {
   //   return this.http.get<Song[]>(this.listenSong);
   // }
-  //
+
   // getAllSongUserId(): Observable<any> {
   //   return this.http.get<any>(this.listSongUserId);
   // }
-  //
+
   // getSearchSong(nameSong: string): Observable<any> {
   //   return this.http.get<any>(`${this.searchSong}/${nameSong}`);
   // }

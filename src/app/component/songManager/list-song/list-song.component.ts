@@ -20,13 +20,13 @@ export class ListSongComponent implements OnInit {
 
     ngOnInit() {
         // const userId = sessionStorage.getItem('AuthUserId');
-        this.songService.getAllSongUserId()
-            .subscribe(next => {
-                this.songList = next.data;
-                console.log(this.songList);
-            }, error => {
-                console.log(error);
-            });
+        // this.songService.getAllSongUserId()
+        //     .subscribe(next => {
+        //         this.songList = next.data;
+        //         console.log(this.songList);
+        //     }, error => {
+        //         console.log(error);
+        //     });
     }
 
     deleteSong(id: number) {

@@ -132,35 +132,35 @@ export class DetailSongComponent implements OnInit {
     });
   }
 
-  likeCount(id: number) {
-    this.likeCounter++;
-    if (this.likeCounter === 1) {
-      this.songService
-          .getLikeSongById(id)
-          .subscribe(
-              data => {
-                this.song = data;
-              },
-              error => {
-                this.song = null;
-              }
-          );
-    }
-  }
-    listenCount(id: number) {
-        this.listenCounter++;
-        if (this.listenCounter === 1) {
-            this.songService
-                .getListenSong()
-                .subscribe (
-                    data => {
-                    },
-                    error => {
-                        this.song = null;
-                    }
-                );
-        }
-    }
+  // likeCount(id: number) {
+  //   this.likeCounter++;
+  //   if (this.likeCounter === 1) {
+  //     this.songService
+  //         .getLikeSongById(id)
+  //         .subscribe(
+  //             data => {
+  //               this.song = data;
+  //             },
+  //             error => {
+  //               this.song = null;
+  //             }
+  //         );
+  //   }
+  // }
+  //   listenCount(id: number) {
+  //       this.listenCounter++;
+  //       if (this.listenCounter === 1) {
+  //           this.songService
+  //               .getListenSong()
+  //               .subscribe (
+  //                   data => {
+  //                   },
+  //                   error => {
+  //                       this.song = null;
+  //                   }
+  //               );
+  //       }
+  //   }
 
   open(content) {
     this.modalService.open(content);

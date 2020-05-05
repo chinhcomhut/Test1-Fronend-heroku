@@ -65,21 +65,21 @@ export class ContentComponent implements OnInit {
                 console.log(error);
             });
 
-        this.songService.getLikeSong()
-            .subscribe(next => {
-                this.listSongLike = next;
-                console.log(next);
-            }, error => {
-                console.log(error);
-            });
+        // this.songService.getLikeSong()
+        //     .subscribe(next => {
+        //         this.listSongLike = next;
+        //         console.log(next);
+        //     }, error => {
+        //         console.log(error);
+        //     });
 
-        this.songService.getListenSong()
-            .subscribe(next => {
-                this.listenSong = next;
-                console.log(next);
-            }, error => {
-                console.log(error);
-            });
+        // this.songService.getListenSong()
+        //     .subscribe(next => {
+        //         this.listenSong = next;
+        //         console.log(next);
+        //     }, error => {
+        //         console.log(error);
+        //     });
 
         this.singerManagerService.getSinger()
             .subscribe(next => {
