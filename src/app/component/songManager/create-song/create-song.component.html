@@ -14,10 +14,11 @@
                 <div class="form-group">
                     <label>Tên ca sĩ: </label>
 <!--                    <input type="text" class="form-control" [(ngModel)]="song.singer" formControlName="singer"-->
-<!--                           placeholder="Nhập vào tên ca sĩ">-->
-                    <select  class="custom-select " id="inputGroupSelect02">
+<!--                           placeholder="Nhập vào tên ca sĩ"-->
+<!--                    >-->
+                    <select  formControlName="singer"class="custom-select " id="inputGroupSelect02">
                         <option value="" selected disabled hidden>Please select Singer</option>
-                        <option [(ngModel)]="song.singer" formControlName="singer"  *ngFor="let singer of singerList" value="{{singer.id}}">{{singer.nameSinger}}</option>
+                        <option   *ngFor="let singer of singerList" value="{{singer.id}}">{{singer.nameSinger}}</option>
                     </select>
                 </div>
 

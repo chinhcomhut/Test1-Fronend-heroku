@@ -33,7 +33,7 @@ export class CreateSongComponent implements OnInit {
       category: new FormControl(''),
       nameSong: new FormControl(''),
       lyrics: new FormControl(''),
-      singer: new FormControl(''),
+      singer: new FormControl(this.singerList),
       mp3Url: new FormControl(''),
       describes: new FormControl('')
     });
@@ -43,7 +43,7 @@ export class CreateSongComponent implements OnInit {
       nameSong: '',
       category: '',
       lyrics: '',
-      singer: '',
+      singer: this.info.singer,
       mp3Url: '',
       describes: '',
     };
