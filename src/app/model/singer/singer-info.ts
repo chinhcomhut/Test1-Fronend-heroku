@@ -3,8 +3,8 @@ import {Song} from '../song/song';
 
 import {SignUpInfo} from '../../auth/signup-info';
 
-export class SingerInfo {
-    id?: number;
+export interface SingerInfo {
+    id?: string;
     nameSinger: string;
     avatarSinger: string;
     information: string;
