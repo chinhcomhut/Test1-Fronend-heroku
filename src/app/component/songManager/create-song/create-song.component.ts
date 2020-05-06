@@ -22,6 +22,7 @@ export class CreateSongComponent implements OnInit {
  info: any;
   songForm: FormGroup;
   song: Partial<Song>;
+  singer: Partial<SingerInfo>;
   avatarUrl: string;
   singerList: SingerInfo[] = [];
   constructor(private router: Router,
@@ -38,13 +39,18 @@ export class CreateSongComponent implements OnInit {
       mp3Url: new FormControl(''),
       describes: new FormControl('')
     });
-
+    this.singer = {
+      id: '',
+      avatarSinger: '',
+      nameSinger: '',
+      information: ''
+    }
     this.song = {
       avatarUrl: '',
       nameSong: '',
       category: '',
       lyrics: '',
-      singerId: 0,
+      singer: this.singer,
       mp3Url: '',
       describes: '',
     };

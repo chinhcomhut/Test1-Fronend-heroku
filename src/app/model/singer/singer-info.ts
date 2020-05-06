@@ -3,11 +3,16 @@ import {Song} from '../song/song';
 
 import {SignUpInfo} from '../../auth/signup-info';
 
-export interface SingerInfo {
+export class SingerInfo {
     id?: string;
     nameSinger: string;
     avatarSinger: string;
     information: string;
     // users: SignUpInfo;
     songs: Song[];
+    constructor(id: string) {
+        this.id = id;
+    }
 }
+
+
