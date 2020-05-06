@@ -1,5 +1,5 @@
-export interface SignUpInfo {
-    id?: string;
+export class SignUpInfo {
+
     name: string;
     username: string;
     email: string;
