@@ -9,9 +9,6 @@ export interface Song {
     nameSong?: string;
     singer?: {
         id: string;
-        nameSinger: string,
-        information: string,
-        avatarSinger: string
     };
     mp3Url?: string;
     describes?: string;

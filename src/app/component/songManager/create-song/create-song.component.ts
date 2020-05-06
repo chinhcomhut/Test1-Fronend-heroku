@@ -38,15 +38,13 @@ export class CreateSongComponent implements OnInit {
       mp3Url: new FormControl(''),
       describes: new FormControl('')
     });
+
     this.song = {
       avatarUrl: '',
       nameSong: '',
       category: '',
-      singer: {
-        id: '',
-        nameSinger: '',
-        information: '',
-        avatarSinger: ''
+      singer:  {
+       id: ''
       },
       lyrics: '',
       mp3Url: '',
