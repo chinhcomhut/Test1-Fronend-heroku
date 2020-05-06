@@ -1,4 +1,4 @@
-export class SignUpInfo {
+export interface SignUpInfo {
 
     name: string;
     username: string;

@@ -7,7 +7,9 @@ export interface Song {
     id?: number;
     avatarUrl?: string;
     nameSong?: string;
-    singer?: string;
+    singer?: {
+        id: string;
+    };
     mp3Url?: string;
     describes?: string;
     category?: string;
