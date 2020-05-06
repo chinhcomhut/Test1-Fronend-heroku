@@ -37,15 +37,18 @@ export class CreateSongComponent implements OnInit {
       mp3Url: new FormControl(''),
       describes: new FormControl('')
     });
-    // @ts-ignore
-    // this.song = {
-    //   avatarUrl: '',
-    //   nameSong: '',
-    //   category: '',
-    //   lyrics: '',
-    //   mp3Url: '',
-    //   describes: '',
-    // };
+
+    this.song = {
+      avatarUrl: '',
+      nameSong: '',
+      category: '',
+      lyrics: '',
+      singer: {
+        id: any()
+      },
+      mp3Url: '',
+      describes: '',
+    };
   }
 ngOnInit() {
   this.singerService.getSinger().subscribe(
@@ -72,23 +75,23 @@ onAvatar($event) {
   }
 
 createSong() {
-  const {  avatarUrl,
-    nameSong,
-    category,
-    lyrics,
-    singerId,
-    mp3Url,
-    describes} = this.songForm.value;
-  // @ts-ignore
-  // @ts-ignore
-  const song: Song = {
-    avatarUrl,
-    nameSong, category, lyrics,
-    singer: {
-      id: singerId
-    },
-    mp3Url, describes
-  };
+  // const {  avatarUrl,
+  //   nameSong,
+  //   category,
+  //   lyrics,
+  //   singerId,
+  //   mp3Url,
+  //   describes} = this.songForm.value;
+  // // @ts-ignore
+  // // @ts-ignore
+  // const song: Song = {
+  //   avatarUrl,
+  //   nameSong, category, lyrics,
+  //   singer: {
+  //     id: singerId
+  //   },
+  //   mp3Url, describes
+  // };
     // console.log(this.song);
   //   this.singerService.getSinger().subscribe(
   //   result => {
@@ -97,7 +100,7 @@ createSong() {
   //     alert('error get listSinger');
   //   }
   // );
-  this.service.createSong(song).subscribe(() => {
+  this.service.createSong(this.song).subscribe(() => {
           alert('Bạn đã thêm thành công Bài Hát');
           this.router.navigate(['/']);
         }, error => {
