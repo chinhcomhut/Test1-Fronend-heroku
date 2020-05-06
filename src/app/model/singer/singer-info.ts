@@ -4,7 +4,7 @@ import {Song} from '../song/song';
 import {SignUpInfo} from '../../auth/signup-info';
 
 export interface SingerInfo {
-    id?: number;
+    id?: string;
     nameSinger: string;
     avatarSinger: string;
     information: string;
