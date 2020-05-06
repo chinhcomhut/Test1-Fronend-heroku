@@ -43,9 +43,7 @@ export class CreateSongComponent implements OnInit {
       avatarUrl: '',
       nameSong: '',
       category: '',
-      singer:  {
-       id: ''
-      },
+      singer: '' ,
       lyrics: '',
       mp3Url: '',
       describes: '',
