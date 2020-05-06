@@ -43,18 +43,19 @@ export class CreateSongComponent implements OnInit {
       nameSong: '',
       category: '',
       lyrics: '',
+      singer: '',
       mp3Url: '',
       describes: '',
     };
   }
 ngOnInit() {
-  // this.singerService.getSinger().subscribe(
-  //   result => {
-  //     this.singerList = result;
-  //   }, error => {
-  //     alert('error get listSinger');
-  //   }
-  // );
+  this.singerService.getSinger().subscribe(
+    result => {
+      this.singerList = result;
+    }, error => {
+      alert('error get listSinger');
+    }
+  );
   this.info = {
       singer: this.singerService.getSinger(),
       name: this.tokenService.getUsername(),
@@ -73,13 +74,13 @@ onAvatar($event) {
 
 createSong() {
     console.log(this.song);
-    this.singerService.getSinger().subscribe(
-    result => {
-      this.singerList = result;
-    }, error => {
-      alert('error get listSinger');
-    }
-  );
+  //   this.singerService.getSinger().subscribe(
+  //   result => {
+  //     this.singerList = result;
+  //   }, error => {
+  //     alert('error get listSinger');
+  //   }
+  // );
     this.service.createSong(this.song).subscribe(() => {
           alert('Bạn đã thêm thành công Bài Hát');
           this.router.navigate(['/']);
