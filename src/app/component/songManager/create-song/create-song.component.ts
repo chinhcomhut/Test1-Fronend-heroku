@@ -34,7 +34,7 @@ export class CreateSongComponent implements OnInit {
       category: new FormControl(''),
       nameSong: new FormControl(''),
       lyrics: new FormControl(''),
-      singerId: new FormControl(''),
+      singer: new FormControl(''),
       mp3Url: new FormControl(''),
       describes: new FormControl('')
     });
