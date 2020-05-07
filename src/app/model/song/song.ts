@@ -3,11 +3,11 @@ import {RegisterInfo} from '../userManager/RegisterInfo';
 
 
 
-export interface Song {
+export class Song {
     id?: number;
     avatarUrl?: string;
     nameSong?: string;
-    singer?: {};
+    singer?: SingerInfo;
     mp3Url?: string;
     describes?: string;
     category?: string;

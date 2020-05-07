@@ -1,5 +1,5 @@
 import {Component, EventEmitter, Input, OnInit, Output} from '@angular/core';
-import {FormControl, FormGroup} from '@angular/forms';
+import {FormBuilder, FormControl, FormGroup} from '@angular/forms';
 import {Song} from '../../../model/song/song';
 import {ActivatedRoute, Router} from '@angular/router';
 import {SongService} from '../../../services/song/song.service';
@@ -19,56 +19,71 @@ import {SignUpInfo} from '../../../auth/signup-info';
 export class CreateSongComponent implements OnInit {
 
   title = 'Thêm Bài Hát Mới';
- info: any;
-  songForm: FormGroup;
+  info: any;
+  // songForm: FormGroup;
   song: Partial<Song>;
-  singer: Partial<SingerInfo>;
+  // singer: Partial<SingerInfo>;
   avatarUrl: string;
   singerList: SingerInfo[] = [];
+  songList: Song[] = [];
   constructor(private router: Router,
               private service: SongService,
               private tokenService: TokenStorageService,
               private singerService: SingerManagerService,
-              private route: ActivatedRoute) {
-    this.songForm = new FormGroup({
-      avatarUrl: new FormControl(''),
-      category: new FormControl(''),
-      nameSong: new FormControl(''),
-      lyrics: new FormControl(''),
-      singer: new FormControl(''),
-      mp3Url: new FormControl(''),
-      describes: new FormControl('')
+              private route: ActivatedRoute,
+              private fb: FormBuilder) {
+    // this.songForm = new FormGroup({
+    //   avatarUrl: new FormControl(''),
+    //   category: new FormControl(''),
+    //   nameSong: new FormControl(''),
+    //   lyrics: new FormControl(''),
+    //   singer: new FormControl(''),
+    //   mp3Url: new FormControl(''),
+    //   describes: new FormControl('')
+    // });
+    // this.singer = {
+    //   id: '',
+    //   avatarSinger: '',
+    //   nameSinger: '',
+    //   information: ''
+    // }
+    // this.song = {
+    //   avatarUrl: '',
+    //   nameSong: '',
+    //   category: '',
+    //   lyrics: '',
+    //   singer: this.singer,
+    //   mp3Url: '',
+    //   describes: '',
+    // };
+  }
+  songForm = this.fb.group({
+    songList: [''],
+    singerList: ['']
+  });
+  changeSinger(e) {
+    this.songForm.patchValue(e.targets.value, {
+      onlySelf: true
     });
-    this.singer = {
-      id: '',
-      avatarSinger: '',
-      nameSinger: '',
-      information: ''
-    }
-    this.song = {
-      avatarUrl: '',
-      nameSong: '',
-      category: '',
-      lyrics: '',
-      singer: this.singer,
-      mp3Url: '',
-      describes: '',
-    };
   }
 ngOnInit() {
-  this.singerService.getSinger().subscribe(
-    result => {
-      this.singerList = result;
-    }, error => {
-      alert('error get listSinger');
-    }
-  );
-  this.info = {
-      singer: this.singerService.getSinger(),
-      name: this.tokenService.getUsername(),
-      token: this.tokenService.getToken(),
-      username: this.tokenService.getUsername()
-    };
+    // this.songForm = this.fb.group({
+    //   songList: [''],
+    //   singeList: [''],
+    // });
+  // this.singerService.getSinger().subscribe(
+  //   result => {
+  //     this.singerList = result;
+  //   }, error => {
+  //     alert('error get listSinger');
+  //   }
+  // );
+  // this.info = {
+  //     singer: this.singerService.getSinger(),
+  //     name: this.tokenService.getUsername(),
+  //     token: this.tokenService.getToken(),
+  //     username: this.tokenService.getUsername()
+  //   };
   }
 
 onChange($event) {
@@ -79,16 +94,19 @@ onAvatar($event) {
     this.song.avatarUrl = $event;
   }
 
-createSong() {
-  this.service.createSong(this.song).subscribe(() => {
-          alert('Bạn đã thêm thành công Bài Hát');
-          this.router.navigate(['/']);
-        }, error => {
-          console.log(error),
-              alert('Bạn chưa thêm thành công');
-        }
-    );
-
+// createSong() {
+//   this.service.createSong(this.song).subscribe(() => {
+//           alert('Bạn đã thêm thành công Bài Hát');
+//           this.router.navigate(['/']);
+//         }, error => {
+//           console.log(error),
+//               alert('Bạn chưa thêm thành công');
+//         }
+//     );
+//
+//   }
+  onSubmit() {
+   console.log(this.songForm.value);
   }
 
 getAvatarUrl(avatarUrl: string) {

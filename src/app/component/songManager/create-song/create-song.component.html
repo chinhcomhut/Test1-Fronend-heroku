@@ -5,7 +5,7 @@
             <app-menu-left></app-menu-left>
         </div>
         <div class="col-5" style="margin-bottom: 10px">
-            <form (ngSubmit)="createSong()" [formGroup]="songForm">
+            <form (ngSubmit)="onSubmit()" [formGroup]="songForm">
                 <div class="form-group">
                     <label>Tên bài hát: </label>
                     <input type="text" class="form-control" [(ngModel)]="song.nameSong" formControlName="nameSong"
@@ -16,9 +16,9 @@
 <!--                    <input type="text" class="form-control" [(ngModel)]="song.singer" formControlName="singer"-->
 <!--                           placeholder="Nhập vào tên ca sĩ"-->
 <!--                    >-->
-                    <select formControlName="singer" class="custom-select " id="inputGroupSelect02">
-                        <option value="" selected disabled hidden>Please select Line</option>
-                        <option *ngFor="let singer of singerList" value="{{singer.id}}">{{singer.nameSinger}}</option>
+                    <select class="form-control" (change)="changeSinger($event)" formControlName="singer">
+                        <option value="" selected disabled hidden>Please select Singer</option>
+                        <option *ngFor="let singer of singerList" [ngValue]="singer">{{singer}}}</option>
                     </select>
                 </div>
 
