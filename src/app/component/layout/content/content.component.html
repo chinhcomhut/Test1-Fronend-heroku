@@ -21,11 +21,10 @@
                     </h3>
                 </div>
 
-                <mat-paginator class="col-2" *ngFor="let song of songList" [length]="songList.length"
-                               [pageSize]="5"
-                               [pageSizeOptions]="[5, 10, 25, 100]">
-                    <div class="row mt-3">
-                            <div [routerLink]="['/home/song/play',song.id]"
+
+
+                    <div *ngFor="let song of songList"  class="row mt-3">
+                            <div class="col-2"  [routerLink]="['/home/song/play',song.id]"
                                  class="rounded mb-4 play portfolio-effect__item portfolio-item--eff1"
                                  style="width: 150px;height: 150px">
                                 <img class="img-fluid portfolio-item__image"
@@ -41,7 +40,7 @@
                             <p style="font-size: 70%" class="mt-3">Ca sĩ - <a class="font-weight-bold">{{song.singer}}</a></p>
                             <p style="font-size: 70%">Thể loại - <a class="font-weight-bold">{{song.category}}</a></p>
                     </div>
-            </mat-paginator>
+
 
             <hr>
             <!--TOP SONG-->
