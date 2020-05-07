@@ -55,8 +55,14 @@ export class CreateSongComponent implements OnInit {
     );
   }
 
-  changeSinger($event) {
-    this.song.singer = $event;
+  onSubmit() {
+    console.log(this.songForm.value);
+}
+
+  changeSinger(e) {
+    this.songForm.patchValue(e.target.value, {
+      onlySelf: true
+    });
   }
 
   ngOnInit() {
