@@ -31,13 +31,16 @@ export class CreateSongComponent implements OnInit {
               private tokenService: TokenStorageService,
               private singerService: SingerManagerService,
               private route: ActivatedRoute,
-              private fb: FormBuilder) {
+              public fb: FormBuilder) {
     this.songForm = new FormGroup({
       avatarUrl: new FormControl(''),
       category: new FormControl(''),
       nameSong: new FormControl(''),
       lyrics: new FormControl(''),
-      singer: new FormControl(''),
+      singer: new FormControl({
+        id: new FormControl(''),
+        nameSinger: new FormControl(''),
+      }),
       mp3Url: new FormControl(''),
       describes: new FormControl('')
     });
@@ -65,13 +68,13 @@ ngOnInit() {
     //   songList: [''],
     //   singeList: [''],
     // });
-  // this.singerService.getSinger().subscribe(
-  //   result => {
-  //     this.singerList = result;
-  //   }, error => {
-  //     alert('error get listSinger');
-  //   }
-  // );
+  this.singerService.getSinger().subscribe(
+    result => {
+      this.singerList = result;
+    }, error => {
+      alert('error get listSinger');
+    }
+  );
   // this.info = {
   //     singer: this.singerService.getSinger(),
   //     name: this.tokenService.getUsername(),
