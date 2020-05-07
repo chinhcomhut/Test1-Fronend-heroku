@@ -22,7 +22,7 @@ export class CreateSongComponent implements OnInit {
   info: any;
   // songForm: FormGroup;
   song: Partial<Song>;
-  // singer: Partial<SingerInfo>;
+  singer: Partial<SingerInfo>;
   avatarUrl: string;
   singerList: SingerInfo[] = [];
   songList: Song[] = [];
@@ -47,19 +47,20 @@ export class CreateSongComponent implements OnInit {
     //   nameSinger: '',
     //   information: ''
     // }
-    // this.song = {
-    //   avatarUrl: '',
-    //   nameSong: '',
-    //   category: '',
-    //   lyrics: '',
-    //   singer: this.singer,
-    //   mp3Url: '',
-    //   describes: '',
-    // };
+    this.song = {
+      avatarUrl: '',
+      nameSong: '',
+      category: '',
+      lyrics: '',
+      singer: '',
+      mp3Url: '',
+      describes: '',
+    };
   }
+
   songForm = this.fb.group({
-    songList: [''],
-    singerList: ['']
+    song: Song,
+    singer: SingerInfo
   });
   changeSinger(e) {
     this.songForm.patchValue(e.targets.value, {
@@ -94,25 +95,25 @@ onAvatar($event) {
     this.song.avatarUrl = $event;
   }
 
-// createSong() {
-//   this.service.createSong(this.song).subscribe(() => {
-//           alert('Bạn đã thêm thành công Bài Hát');
-//           this.router.navigate(['/']);
-//         }, error => {
-//           console.log(error),
-//               alert('Bạn chưa thêm thành công');
-//         }
-//     );
-//
-//   }
-  onSubmit() {
-   console.log(this.songForm.value);
-  }
+createSong() {
+  this.service.createSong(this.songForm.value).subscribe(() => {
+          alert('Bạn đã thêm thành công Bài Hát');
+          this.router.navigate(['/']);
+        }, error => {
+          console.log(error),
+              alert('Bạn chưa thêm thành công');
+        }
+    );
 
-getAvatarUrl(avatarUrl: string) {
-    this.avatarUrl = avatarUrl;
-    console.log(avatarUrl);
   }
+  // onSubmit() {
+  //  console.log(this.songForm.value);
+  // }
+
+// getAvatarUrl(avatarUrl: string) {
+//     this.avatarUrl = avatarUrl;
+//     console.log(avatarUrl);
+//   }
 
 
 }

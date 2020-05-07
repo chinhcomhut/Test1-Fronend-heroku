@@ -5,10 +5,10 @@
             <app-menu-left></app-menu-left>
         </div>
         <div class="col-5" style="margin-bottom: 10px">
-            <form (ngSubmit)="onSubmit()" [formGroup]="songForm">
+            <form (ngSubmit)="createSong()" [formGroup]="songForm">
                 <div class="form-group">
                     <label>Tên bài hát: </label>
-                    <input type="text" class="form-control" [(ngModel)]="song.nameSong" formControlName="song"
+                    <input type="text" class="form-control" [(ngModel)]="song.nameSong" formControlName="nameSong"
                            placeholder="Nhập vào tên bài hát">
                 </div>
                 <div class="form-group">
@@ -30,7 +30,7 @@
 
                 <div class="form-group">
                     <label>Lyrics: </label>
-                    <textarea class="form-control" [(ngModel)]="song.lyrics" formControlName="song"
+                    <textarea class="form-control" [(ngModel)]="song.lyrics" formControlName="lyrics"
                               placeholder="Nhập vào lời bài hát"></textarea>
                 </div>
                 <div style="margin-bottom: 20px">
