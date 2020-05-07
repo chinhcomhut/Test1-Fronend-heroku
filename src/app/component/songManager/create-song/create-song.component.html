@@ -18,7 +18,7 @@
 <!--                    >-->
                     <select class="form-control" (change)="changeSinger($event)" formControlName="singer">
                         <option value="" selected disabled hidden>Please select Singer</option>
-                        <option *ngFor="let singer of singerList" [ngValue]="singer.id"[(ngModel)]="song.singer">{{singer.nameSinger}}}</option>
+                        <option *ngFor="let singer of singerList" [ngValue]="singer.id">{{singer.nameSinger}}}</option>
                     </select>
                 </div>
 

@@ -20,7 +20,7 @@ export class CreateSongComponent implements OnInit {
 
   title = 'Thêm Bài Hát Mới';
   info: any;
-  // songForm: FormGroup;
+  songForm: FormGroup;
   song: Partial<Song>;
   singer: Partial<SingerInfo>;
   avatarUrl: string;
@@ -32,15 +32,15 @@ export class CreateSongComponent implements OnInit {
               private singerService: SingerManagerService,
               private route: ActivatedRoute,
               private fb: FormBuilder) {
-    // this.songForm = new FormGroup({
-    //   avatarUrl: new FormControl(''),
-    //   category: new FormControl(''),
-    //   nameSong: new FormControl(''),
-    //   lyrics: new FormControl(''),
-    //   singer: new FormControl(''),
-    //   mp3Url: new FormControl(''),
-    //   describes: new FormControl('')
-    // });
+    this.songForm = new FormGroup({
+      avatarUrl: new FormControl(''),
+      category: new FormControl(''),
+      nameSong: new FormControl(''),
+      lyrics: new FormControl(''),
+      singer: new FormControl(''),
+      mp3Url: new FormControl(''),
+      describes: new FormControl('')
+    });
     // this.singer = {
     //   id: '',
     //   avatarSinger: '',
@@ -52,20 +52,13 @@ export class CreateSongComponent implements OnInit {
       nameSong: '',
       category: '',
       lyrics: '',
-      singer: '',
+      singer: {},
       mp3Url: '',
       describes: '',
     };
   }
-
-  songForm = this.fb.group({
-    song: Song,
-    singer: SingerInfo
-  });
-  changeSinger(e) {
-    this.songForm.patchValue(e.targets.value, {
-      onlySelf: true
-    });
+  changeSinger($event) {
+ this.song.singer = $event;
   }
 ngOnInit() {
     // this.songForm = this.fb.group({
@@ -96,7 +89,7 @@ onAvatar($event) {
   }
 
 createSong() {
-  this.service.createSong(this.songForm.value).subscribe(() => {
+  this.service.createSong(this.song).subscribe(() => {
           alert('Bạn đã thêm thành công Bài Hát');
           this.router.navigate(['/']);
         }, error => {
