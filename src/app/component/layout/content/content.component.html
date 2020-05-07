@@ -20,29 +20,32 @@
                         Bài Hát Mới Nhất
                     </h3>
                 </div>
-                <div class="row mt-3">
+                <mat-paginator [length]="100"
+                               [pageSize]="10"
+                               [pageSizeOptions]="[5, 10, 25, 100]">
+                    <div class="row mt-3">
 
-                    <div class="col-2" *ngFor="let song of songList">
+                        <div class="col-2" *ngFor="let song of songList">
 
-                        <div [routerLink]="['/home/song/play',song.id]"
-                             class="rounded mb-4 play portfolio-effect__item portfolio-item--eff1"
-                             style="width: 150px;height: 150px">
-                            <img class="img-fluid portfolio-item__image"
-                                 src="{{song.avatarUrl}}"
-                                 alt="{{song.nameSong}}">
-<!--                            <div class="portfolio-item__info">-->
-<!--                                <i class="fas fa-play-circle fa-3x"></i>-->
-<!--                            </div>-->
+                            <div [routerLink]="['/home/song/play',song.id]"
+                                 class="rounded mb-4 play portfolio-effect__item portfolio-item--eff1"
+                                 style="width: 150px;height: 150px">
+                                <img class="img-fluid portfolio-item__image"
+                                     src="{{song.avatarUrl}}"
+                                     alt="{{song.nameSong}}">
+                                <!--                            <div class="portfolio-item__info">-->
+                                <!--                                <i class="fas fa-play-circle fa-3x"></i>-->
+                                <!--                            </div>-->
+                            </div>
+                            <a [routerLink]="['/home/song/play',song.id]" class="font-weight-bold mb-3" style="font-size: 14px">
+                                <strong>{{song.nameSong}}</strong>
+                            </a>
+                            <p style="font-size: 70%" class="mt-3">Ca sĩ - <a class="font-weight-bold">{{song.singer}}</a></p>
+                            <p style="font-size: 70%">Thể loại - <a class="font-weight-bold">{{song.category}}</a></p>
                         </div>
-                        <a [routerLink]="['/home/song/play',song.id]" class="font-weight-bold mb-3" style="font-size: 14px">
-                            <strong>{{song.nameSong}}</strong>
-                        </a>
-                        <p style="font-size: 70%" class="mt-3">Ca sĩ - <a class="font-weight-bold">{{song.singer}}</a></p>
-                        <p style="font-size: 70%">Thể loại - <a class="font-weight-bold">{{song.category}}</a></p>
-                    </div>
 
-                </div>
-            </div>
+                    </div>
+            </mat-paginator>
 
             <hr>
             <!--TOP SONG-->

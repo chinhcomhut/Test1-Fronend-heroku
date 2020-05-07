@@ -71,6 +71,7 @@ import { PlayerComponent } from './component/player/player.component';
 import { DetailPlayerComponent } from './component/songManager/detail-player/detail-player.component';
 import {MatButtonModule} from '@angular/material/button';
 import { UpdateSongComponent } from './component/songManager/update-song/update-song.component';
+import {MatPaginatorModule} from '@angular/material/typings/paginator';
 
 export const appRoutes: Routes = [
     {path: '', component: HomeComponent, data: {title: 'Home'}},
@@ -134,17 +135,17 @@ export const appRoutes: Routes = [
         // tslint:disable-next-line:max-line-length
         UserComponent, PmComponent, AdminComponent, UploadAvatarComponent, UploadFileComponent, CreateSongComponent, TitlePageComponent, MenuLeftComponent, ContentComponent, DetailSongComponent, AboutUsComponent, CarouselComponent, HeaderComponent, NotGuardComponent, SearchComponent, FooterComponent, ListSongComponent, AllListSongComponent, UpdatesingerComponent, SingeraddsongComponent, ListSingerUserComponent, ListSingerComponent, CarouselListSingerComponent, CreateSingerComponent, DetailSingerComponent, AddsongComponent, CreatePlaylistComponent, ListPlaylistComponent, PlaylistComponent, UpdatePlaylistComponent, SortPipe, ChangePassComponent, PlayerComponent, DetailPlayerComponent, UpdateSongComponent,
     ],
-    imports: [
-        HttpClientModule,
-        BrowserModule, FontAwesomeModule,
-        MatCardModule, MatToolbarModule, MatIconModule, MatRadioModule, MatCheckboxModule, MatSlideToggleModule,
-        BrowserAnimationsModule, ShareButtonsModule,
-        NgxAudioPlayerModule,
-        FormsModule, ReactiveFormsModule,
-        RouterModule.forRoot(appRoutes, {useHash: false}), MatFormFieldModule,
-        AngularFireStorageModule,
-        AngularFireModule.initializeApp(environment.firebaseConfig), NgbCarouselModule, MatSortModule, NgxAudioPlayerModule, DragDropModule, MatButtonModule,
-    ],
+  imports: [
+    HttpClientModule,
+    BrowserModule, FontAwesomeModule,
+    MatCardModule, MatToolbarModule, MatIconModule, MatRadioModule, MatCheckboxModule, MatSlideToggleModule,
+    BrowserAnimationsModule, ShareButtonsModule,
+    NgxAudioPlayerModule,
+    FormsModule, ReactiveFormsModule,
+    RouterModule.forRoot(appRoutes, {useHash: false}), MatFormFieldModule,
+    AngularFireStorageModule,
+    AngularFireModule.initializeApp(environment.firebaseConfig), NgbCarouselModule, MatSortModule, NgxAudioPlayerModule, DragDropModule, MatButtonModule, MatPaginatorModule,
+  ],
     entryComponents: [UserComponent],
     providers: [httpInterceptorProviders, AuthGuard, AuthService],
     bootstrap: [AppComponent, UserComponent]
