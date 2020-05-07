@@ -39,9 +39,6 @@ export class CreateSongComponent implements OnInit {
   private validateForm() {
     this.songForm = this.fb.group({
       nameSong: [''],
-      singer: this.fb.group({
-        singerId: ['']
-      })
     });
   }
 
@@ -59,6 +56,7 @@ export class CreateSongComponent implements OnInit {
 
   onSubmit() {
     console.log(this.songForm.value);
+    alert('tao bai hat thanh cong!');
 }
 
   changeSinger(e) {
