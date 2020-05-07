@@ -53,10 +53,22 @@ export class CreateSongComponent implements OnInit {
       }
     );
   }
+  createSong() {
+    // @ts-ignore
+    this.service.createSong().subscribe(
+      result => {
+        this.songForm = result;
+        console.log(this.songForm);
+        alert('tao bai hat thanh cong!');
+        // tslint:disable-next-line:no-shadowed-variable
+      }, error => {
+        alert('error khong tao duoc Song');
+      }
+    );
+  }
 
   onSubmit() {
     console.log(this.songForm.value);
-    alert('tao bai hat thanh cong!');
 }
 
   changeSinger(e) {
@@ -68,6 +80,7 @@ export class CreateSongComponent implements OnInit {
   ngOnInit() {
     this.validateForm();
     this.getSinger();
+    this.createSong();
   }
 
   onChange($event) {
