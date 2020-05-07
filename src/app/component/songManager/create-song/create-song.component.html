@@ -16,9 +16,9 @@
 <!--                    <input type="text" class="form-control" [(ngModel)]="song.singer" formControlName="singer"-->
 <!--                           placeholder="Nhập vào tên ca sĩ"-->
 <!--                    >-->
-                    <select class="form-control" (change)="changeSinger($event)" formControlName="singer">
+                    <select formControlName="singer" class="custom-select " id="inputGroupSelect02" (change)="changeSinger($event)">
                         <option value="" selected disabled hidden>Please select Singer</option>
-                        <option *ngFor="let singer of singerList" [ngValue]="singer.id">{{singer.nameSinger}}}</option>
+                        <option *ngFor="let singer of singerList" value="{{singer.id}}">{{singer.nameSinger}}</option>
                     </select>
                 </div>
 
