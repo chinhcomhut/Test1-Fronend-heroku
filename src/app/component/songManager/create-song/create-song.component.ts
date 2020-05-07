@@ -39,8 +39,8 @@ export class CreateSongComponent implements OnInit {
   private validateForm() {
     this.songForm = this.fb.group({
       nameSong: [''],
-      singerid: this.fb.group({
-        id: ['']
+      singer: this.fb.group({
+        singerId: ['']
       })
     });
   }
