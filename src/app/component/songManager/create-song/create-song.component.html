@@ -8,7 +8,7 @@
             <form (ngSubmit)="onSubmit()" [formGroup]="songForm">
                 <div class="form-group">
                     <label>Tên bài hát: </label>
-                    <input type="text" class="form-control" [(ngModel)]="song.nameSong" formControlName="nameSong"
+                    <input type="text" class="form-control" [(ngModel)]="song.nameSong" formControlName="song"
                            placeholder="Nhập vào tên bài hát">
                 </div>
                 <div class="form-group">
@@ -18,7 +18,7 @@
 <!--                    >-->
                     <select class="form-control" (change)="changeSinger($event)" formControlName="singer">
                         <option value="" selected disabled hidden>Please select Singer</option>
-                        <option *ngFor="let singer of singerList" [ngValue]="singer">{{singer}}}</option>
+                        <option *ngFor="let singer of singerList" [ngValue]="singer.id"[(ngModel)]="song.singer">{{singer.nameSinger}}}</option>
                     </select>
                 </div>
 
@@ -30,7 +30,7 @@
 
                 <div class="form-group">
                     <label>Lyrics: </label>
-                    <textarea class="form-control" [(ngModel)]="song.lyrics" formControlName="lyrics"
+                    <textarea class="form-control" [(ngModel)]="song.lyrics" formControlName="song"
                               placeholder="Nhập vào lời bài hát"></textarea>
                 </div>
                 <div style="margin-bottom: 20px">
