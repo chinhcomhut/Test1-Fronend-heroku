@@ -66,6 +66,7 @@ export class CreateSongComponent implements OnInit {
   }
 
   ngOnInit() {
+    this.validateForm();
     this.getSinger();
   }
 
