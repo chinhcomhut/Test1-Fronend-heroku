@@ -34,6 +34,12 @@ export class CreateSongComponent implements OnInit {
               private singerService: SingerManagerService,
               private route: ActivatedRoute,
               public fb: FormBuilder) {
+    this.songForm = new FormGroup({
+    });
+    this.song = {
+      nameSong: '',
+      singer: any(),
+    };
   }
   private validateForm() {
      this.fb.group({
@@ -56,8 +62,8 @@ export class CreateSongComponent implements OnInit {
     // @ts-ignore
     this.service.createSong().subscribe(
       result => {
-        this.songForm = result;
-        console.log(this.songForm);
+        this.song = result;
+        console.log(this.song);
         alert('tao bai hat thanh cong!');
         // tslint:disable-next-line:no-shadowed-variable
       }, error => {
@@ -66,27 +72,18 @@ export class CreateSongComponent implements OnInit {
     );
   }
 
-  onSubmit() {
-    console.log(this.songForm.value);
+
+changeSinger(e) {
+ this.song.singer.id = e;
+  }
+ngOnInit() {
 }
 
-  changeSinger(e) {
-    this.songForm.patchValue(e.target.value, {
-      onlySelf: true
-    });
-  }
-
-  ngOnInit() {
-    this.validateForm();
-    this.getSinger();
-    this.createSong();
-  }
-
-  onChange($event) {
+onChange($event) {
     this.song.mp3Url = $event;
   }
 
-  onAvatar($event) {
+onAvatar($event) {
     this.song.avatarUrl = $event;
   }
 
