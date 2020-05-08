@@ -35,9 +35,8 @@ export class CreateSongComponent implements OnInit {
               private route: ActivatedRoute,
               public fb: FormBuilder) {
   }
-
   private validateForm() {
-    this.songForm = this.fb.group({
+     this.fb.group({
       nameSong: [''],
     });
   }
