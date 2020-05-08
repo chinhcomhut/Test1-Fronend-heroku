@@ -20,72 +20,68 @@ import {error} from 'ng-packagr/lib/util/log';
 export class CreateSongComponent implements OnInit {
 
   title = 'Thêm Bài Hát Mới';
-  info: any;
-  songForm: FormGroup;
 
+  songForm: FormGroup;
   song: Partial<Song>;
+  singerList: SingerInfo[] = [];
   avatarUrl: string;
-  singerList: SingerInfo[];
-  songList: Song[] = [];
 
   constructor(private router: Router,
               private service: SongService,
               private tokenService: TokenStorageService,
-              private singerService: SingerManagerService,
-              private route: ActivatedRoute,
               public fb: FormBuilder) {
     this.songForm = new FormGroup({
+      avatarUrl: new FormControl(''),
+      category: new FormControl(''),
+      nameSong: new FormControl(''),
+      lyrics: new FormControl(''),
+      singerId: new FormControl(''),
+      mp3Url: new FormControl(''),
+      describes: new FormControl('')
     });
     this.song = {
+      avatarUrl: '',
       nameSong: '',
+      category: '',
       singerId: '',
+      lyrics: '',
+      mp3Url: '',
+      describes: '',
     };
+    // this.songForm = fb.group({
+    //   avatarUrl: [''],
+    //   nameSong: ['']
+    // });
   }
-  // private validateForm() {
-  //    this.fb.group({
-  //     nameSong: [''],
-  //   });
-  // }
-
-  getSinger() {
-    this.singerService.getSinger().subscribe(
-      result => {
-        this.singerList = result;
-        console.log(this.singerList);
-        // tslint:disable-next-line:no-shadowed-variable
-      }, error => {
-        alert('error get listSinger');
-      }
-    );
+  ngOnInit() {
   }
-  createSong() {
-    // @ts-ignore
-    this.service.createSong(this.song).subscribe(
-      result => {
-        this.song = result;
-        console.log(this.song);
-        alert('tao bai hat thanh cong!');
-        // tslint:disable-next-line:no-shadowed-variable
-      }, error => {
-        alert('error khong tao duoc Song');
-      }
-    );
+  onChangeSinger($event) {
+    this.song.singerId = $event;
   }
-
-
-changeSinger(e) {
- this.song.singerId = e;
-  }
-ngOnInit() {
-    this.getSinger();
-}
-
-onChange($event) {
+  onChange($event) {
     this.song.mp3Url = $event;
   }
 
-onAvatar($event) {
+  onAvatar($event) {
     this.song.avatarUrl = $event;
+  }
+
+  createSong() {
+    console.log(this.songForm);
+    this.service.createSong(this.song).subscribe(() => {
+        alert('Bạn đã thêm thành công Bài Hát');
+        this.router.navigate(['/']);
+      // tslint:disable-next-line:no-shadowed-variable
+      }, error => {
+        console.log(error),
+          alert('Bạn chưa thêm thành công');
+      }
+    );
+  }
+
+  getAvatarUrl(avatarUrl: string) {
+    this.avatarUrl = avatarUrl;
+    console.log(avatarUrl);
   }
 
 }
