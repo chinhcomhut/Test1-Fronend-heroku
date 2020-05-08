@@ -23,7 +23,7 @@ export class CreateSongComponent implements OnInit {
 
   songForm: FormGroup;
   song: Partial<Song>;
-  singer: Partial<SingerInfo>
+  singer: Partial<SingerInfo>;
   singerList: SingerInfo[] = [];
   avatarUrl: string;
 
@@ -41,13 +41,12 @@ export class CreateSongComponent implements OnInit {
       mp3Url: new FormControl(''),
       describes: new FormControl('')
     });
+    // @ts-ignore
+    // @ts-ignore
     this.song = {
       avatarUrl: '',
       nameSong: '',
       category: '',
-      singer: {
-        id: '',
-      },
       lyrics: '',
       mp3Url: '',
       describes: '',
