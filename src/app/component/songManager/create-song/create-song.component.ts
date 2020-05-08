@@ -23,6 +23,7 @@ export class CreateSongComponent implements OnInit {
 
   songForm: FormGroup;
   song: Partial<Song>;
+  singer: Partial<SingerInfo>
   singerList: SingerInfo[] = [];
   avatarUrl: string;
 
@@ -49,6 +50,9 @@ export class CreateSongComponent implements OnInit {
       mp3Url: '',
       describes: '',
     };
+    // this.singer = {
+    //   id: '',
+    // };
     // this.songForm = fb.group({
     //   avatarUrl: [''],
     //   nameSong: ['']
@@ -65,7 +69,7 @@ export class CreateSongComponent implements OnInit {
     );
   }
   onChangeSinger($event) {
-    this.song.singerId = $event;
+    this.song.singerId = this.singer.id = $event;
   }
   onChange($event) {
     this.song.mp3Url = $event;
