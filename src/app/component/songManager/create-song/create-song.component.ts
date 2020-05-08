@@ -45,7 +45,9 @@ export class CreateSongComponent implements OnInit {
       avatarUrl: '',
       nameSong: '',
       category: '',
-      singer: SingerInfo,
+      singer: {
+        id: '',
+      },
       lyrics: '',
       mp3Url: '',
       describes: '',
@@ -80,7 +82,8 @@ export class CreateSongComponent implements OnInit {
   }
 
   createSong() {
-    console.log(this.songForm);
+    console.log(this.songForm + 'in form');
+    console.log(this.song + 'in song');
     this.service.createSong(this.song).subscribe(() => {
         alert('Bạn đã thêm thành công Bài Hát');
         this.router.navigate(['/']);
