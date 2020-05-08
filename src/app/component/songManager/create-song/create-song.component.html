@@ -15,7 +15,7 @@
                     <label>Tên ca sĩ: </label>
                     <select formControlName="singer" class="custom-select " id="inputGroupSelect02">
                         <option value="" selected disabled hidden>Please select Line</option>
-                        <option *ngFor="let singer of singerList" [ngValue]="singer.id"[(ngModel)]="song.singer">{{singer.nameSinger}}</option>
+                        <option *ngFor="let singer of singerList" [ngValue]="singer.id"[(ngModel)]="song.singer"[ngModelOptions]="{standalone: true}">{{singer.nameSinger}}</option>
                     </select>
                 </div>
 
