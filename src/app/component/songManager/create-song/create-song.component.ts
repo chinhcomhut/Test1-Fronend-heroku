@@ -38,14 +38,14 @@ export class CreateSongComponent implements OnInit {
     });
     this.song = {
       nameSong: '',
-      singer: any(),
+      singerId: '',
     };
   }
-  private validateForm() {
-     this.fb.group({
-      nameSong: [''],
-    });
-  }
+  // private validateForm() {
+  //    this.fb.group({
+  //     nameSong: [''],
+  //   });
+  // }
 
   getSinger() {
     this.singerService.getSinger().subscribe(
@@ -74,7 +74,7 @@ export class CreateSongComponent implements OnInit {
 
 
 changeSinger(e) {
- this.song.singer.id = e;
+ this.song.singerId = e;
   }
 ngOnInit() {
     this.getSinger();

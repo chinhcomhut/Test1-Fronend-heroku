@@ -7,7 +7,7 @@ export class Song {
     id?: number;
     avatarUrl?: string;
     nameSong?: string;
-    singer?: SingerInfo;
+    singerId?: string;
     mp3Url?: string;
     describes?: string;
     category?: string;
