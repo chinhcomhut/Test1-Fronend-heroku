@@ -20,13 +20,13 @@ export class CreateSingerComponent implements OnInit {
   constructor(
       private router: Router,
       private singerManagerService: SingerManagerService) {
-    // this.singerForm = new FormGroup({
-    //   // nameSinger: new FormControl(''),
-    //   // avatarSinger: new FormControl(''),
-    //   // singerBirthday: new FormControl(''),
-    //   // singerNation: new FormControl(''),
-    //   // description: new FormControl(''),
-    // });
+    this.singerForm = new FormGroup({
+      // nameSinger: new FormControl(''),
+      // avatarSinger: new FormControl(''),
+      // singerBirthday: new FormControl(''),
+      // singerNation: new FormControl(''),
+      // description: new FormControl(''),
+    });
     this.singer = {
       nameSinger: '',
       avatarSinger: '',
