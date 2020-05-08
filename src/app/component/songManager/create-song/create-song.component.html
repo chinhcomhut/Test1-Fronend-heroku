@@ -40,13 +40,13 @@
         <input type="text" class="form-control" [(ngModel)]="song.nameSong" formControlName="nameSong"
                placeholder="Nhập vào tên bài hát">
     </div>
-<!--    <div class="form-group">-->
-<!--        <label>Tên ca sĩ: </label>-->
-<!--        <select formControlName="singerId" class="custom-select"(change)="changeSinger($event)">-->
-<!--&lt;!&ndash;            <option value="">Please select Singer</option>&ndash;&gt;-->
-<!--            <option *ngFor="let singer of singerList" [ngValue]="singer.id">{{singer.nameSinger}}</option>-->
-<!--        </select>-->
-<!--    </div>-->
+    <div class="form-group">
+        <label>Tên ca sĩ: </label>
+        <select formControlName="singerId" class="custom-select"[(ngModel)]="song.singerId" (change)="changeSinger($event)">
+<!--            <option value="">Please select Singer</option>-->
+            <option *ngFor="let singer of singerList" [ngValue]="singer.id">{{singer.nameSinger}}</option>
+        </select>
+    </div>
     <div style="margin-bottom: 20px">
         <button type="submit" class="btn btn-primary">Thêm Bài Hát</button>
     </div>

@@ -22,12 +22,12 @@ export class CreateSingerComponent implements OnInit {
       private singerManagerService: SingerManagerService) {
     this.singerForm = new FormGroup({
     });
-    // this.singer = {
-    //   nameSinger: '',
-    //   avatarSinger: '',
-    //   information: '',
-    //   songs: []
-    // };
+    this.singer = {
+      nameSinger: '',
+      avatarSinger: '',
+      information: '',
+      songs: []
+    };
   }
   ngOnInit() {
   }
@@ -37,11 +37,6 @@ export class CreateSingerComponent implements OnInit {
   }
 
   createSinger() {
-  const  { nameSinger,
-          avatarSinger, information} = this.singerForm.value;
-  this.singer = {
-    nameSinger, avatarSinger, information
-    };
   console.log(this.singer);
   this.singerManagerService.createSinger(this.singer).subscribe(() => {
           alert('Bạn đã thêm thành công Ca Sĩ');

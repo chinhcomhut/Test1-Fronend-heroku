@@ -60,7 +60,7 @@ export class CreateSongComponent implements OnInit {
   }
   createSong() {
     // @ts-ignore
-    this.service.createSong().subscribe(
+    this.service.createSong(this.song).subscribe(
       result => {
         this.song = result;
         console.log(this.song);
