@@ -28,6 +28,7 @@ export class CreateSongComponent implements OnInit {
 
   constructor(private router: Router,
               private service: SongService,
+              private singerService: SingerManagerService,
               private tokenService: TokenStorageService,
               public fb: FormBuilder) {
     this.songForm = new FormGroup({
@@ -53,7 +54,15 @@ export class CreateSongComponent implements OnInit {
     //   nameSong: ['']
     // });
   }
+
   ngOnInit() {
+    this.singerService.getSinger().subscribe(
+      result => {
+        this.singerList = result;
+      }, error0 => {
+        alert('error get manage-singer');
+      }
+    );
   }
   onChangeSinger($event) {
     this.song.singerId = $event;
