@@ -25,7 +25,7 @@ export class CreateSongComponent implements OnInit {
 
   song: Partial<Song>;
   avatarUrl: string;
-  singerList: any[];
+  singerList: SingerInfo[];
   songList: Song[] = [];
 
   constructor(private router: Router,
@@ -77,6 +77,7 @@ changeSinger(e) {
  this.song.singer.id = e;
   }
 ngOnInit() {
+    this.getSinger();
 }
 
 onChange($event) {
