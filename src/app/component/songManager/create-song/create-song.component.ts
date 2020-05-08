@@ -45,7 +45,7 @@ export class CreateSongComponent implements OnInit {
       avatarUrl: '',
       nameSong: '',
       category: '',
-      singerId: '',
+      singer: SingerInfo,
       lyrics: '',
       mp3Url: '',
       describes: '',
@@ -69,7 +69,7 @@ export class CreateSongComponent implements OnInit {
     );
   }
   onChangeSinger($event) {
-    this.song.singerId = this.singer.id = $event;
+    this.song.singer = this.singer.id = $event;
   }
   onChange($event) {
     this.song.mp3Url = $event;
