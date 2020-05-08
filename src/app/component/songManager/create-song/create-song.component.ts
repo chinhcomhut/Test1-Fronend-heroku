@@ -37,7 +37,7 @@ export class CreateSongComponent implements OnInit {
       category: new FormControl(''),
       nameSong: new FormControl(''),
       lyrics: new FormControl(''),
-      singerId: new FormControl(''),
+      singer: new FormControl(''),
       mp3Url: new FormControl(''),
       describes: new FormControl('')
     });
@@ -68,9 +68,9 @@ export class CreateSongComponent implements OnInit {
       }
     );
   }
-  onChangeSinger($event) {
-    this.song.singer = this.singer.id = $event;
-  }
+  // onChangeSinger($event) {
+  //   this.song.singer = this.singer.id = $event;
+  // }
   onChange($event) {
     this.song.mp3Url = $event;
   }
