@@ -24,7 +24,7 @@ export class CreateSongComponent implements OnInit {
   songForm: FormGroup;
   singerForm: FormGroup;
   song: Partial<Song>;
-  song: { nameSong: string; singer: { nameSinger: string; id: string }; avatarUrl: string; category: string; mp3Url: string; lyrics: string; describes: string };
+
   // song: { nameSong: string; singer: {}; avatarUrl: string; category: string; mp3Url: string; lyrics: string; describes: string };
   singer: Partial<SingerInfo>;
   singerList: SingerInfo[] = [];
@@ -40,10 +40,6 @@ export class CreateSongComponent implements OnInit {
       category: new FormControl(''),
       nameSong: new FormControl(''),
       lyrics: new FormControl(''),
-      singer : new FormGroup({
-        id: new FormControl(''),
-        nameSinger: new FormControl('')
-      }),
       mp3Url: new FormControl(''),
       describes: new FormControl('')
     });
@@ -54,10 +50,6 @@ export class CreateSongComponent implements OnInit {
       nameSong: '',
       category: '',
       lyrics: '',
-      singer: {
-        id: '',
-        nameSinger: ''
-      },
       mp3Url: '',
       describes: '',
     };
