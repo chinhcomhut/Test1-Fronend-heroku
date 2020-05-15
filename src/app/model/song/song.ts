@@ -1,8 +1,6 @@
 import {SingerInfo} from '../singer/singer-info';
 import {RegisterInfo} from '../userManager/RegisterInfo';
 
-
-
 export class Song {
     id?: number;
     avatarUrl?: string;
